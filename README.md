@@ -1,2 +1,2 @@
-# public-repository
-public repository
+# 说明
+主要包含示例项目
