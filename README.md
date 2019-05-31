@@ -8,3 +8,8 @@
 >Springboot2.1.5集成liqiubase3.6.3
 Liquibase是一个数据库表结构迭代演进变更的管理工具。开发人员可以不是直接针对某个特定的数据库编写SQL的创建、更新或删除数据库对象，而是在通过XML、YAML、JSON等文件中定义描述他们所需的数据库表结构的变更这些变更可以包含tables,views,columns,indexes,foreignkeys,primarykeys,uniqueconstraints,data。
 官网地址：[这里](http://www.liquibase.org)
+### arangodb-demo
+>本地安装好ArangoDB服务器，默认系统管理员(root)密码为空或"root"
+主要涉及几个部分的测试：
+>> 基本的文档操作 com.feng.arangodb.base.TestArangoDemo.java
+>> Graph操作 com.feng.arangodb.graph.GraphTraversalsInAQLExample.java(& com.feng.arangodb.graph.BaseGraphTest.java)
