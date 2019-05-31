@@ -52,10 +52,10 @@ public abstract class BaseGraphTest {
         }
         arangoDB.createDatabase(TEST_DB);
         arangoDB.createDatabase(TEST_DB2);
-        BaseGraphTest.db = arangoDB.db(TEST_DB);
-        BaseGraphTest.db2 = arangoDB.db(TEST_DB2);
+        db = arangoDB.db(TEST_DB);
+        db2 = arangoDB.db(TEST_DB2);
 
-        final Collection<EdgeDefinition> edgeDefinitions = new ArrayList<EdgeDefinition>();
+        final Collection<EdgeDefinition> edgeDefinitions = new ArrayList<>();
         final EdgeDefinition edgeDefinition = new EdgeDefinition().collection(EDGE_COLLECTION_NAME)
                 .from(VERTEXT_COLLECTION_NAME).to(VERTEXT_COLLECTION_NAME);
         edgeDefinitions.add(edgeDefinition);
@@ -66,12 +66,15 @@ public abstract class BaseGraphTest {
 
         }
 
-        final Collection<EdgeDefinition> edgeDefinitions2 = new ArrayList<EdgeDefinition>();
+        final Collection<EdgeDefinition> edgeDefinitions2 = new ArrayList<>();
         final EdgeDefinition edgeDefinition2 = new EdgeDefinition().collection(EDGE_COLLECTION_NAME2)
                 .from(VERTEXT_COLLECTION_NAME2).to(VERTEXT_COLLECTION_NAME3);
         edgeDefinitions2.add(edgeDefinition2);
+//        edgeDefinitions2.add(new EdgeDefinition().collection(EDGE_COLLECTION_NAME2)
+////                .from(VERTEXT_COLLECTION_NAME3)
+////                .to(VERTEXT_COLLECTION_NAME2));
         try {
-            db2.createGraph(GRAPH_NAME2, edgeDefinitions, null);
+            db2.createGraph(GRAPH_NAME2, edgeDefinitions2, null);
             addTestData();
         } catch (final ArangoDBException ex) {
 

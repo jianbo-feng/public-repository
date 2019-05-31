@@ -23,7 +23,7 @@ public class AQLActorsAndMoviesExample {
 
     @BeforeClass
     public static void setUp() {
-        arangoDB = new ArangoDB.Builder().host("127.0.0.1", 8529).user("root").password("root").build();
+        arangoDB = new ArangoDB.Builder().host("127.0.0.1", 8529).user("root").password("").build();
         try {
             arangoDB.db(TEST_DB).drop();
         } catch (final ArangoDBException e) {
@@ -35,7 +35,7 @@ public class AQLActorsAndMoviesExample {
 
     @AfterClass
     public static void tearDown() {
-        db.drop();
+//        db.drop();
         arangoDB.shutdown();
     }
 
