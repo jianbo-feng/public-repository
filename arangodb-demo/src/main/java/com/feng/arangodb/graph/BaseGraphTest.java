@@ -70,9 +70,6 @@ public abstract class BaseGraphTest {
         final EdgeDefinition edgeDefinition2 = new EdgeDefinition().collection(EDGE_COLLECTION_NAME2)
                 .from(VERTEXT_COLLECTION_NAME2).to(VERTEXT_COLLECTION_NAME3);
         edgeDefinitions2.add(edgeDefinition2);
-//        edgeDefinitions2.add(new EdgeDefinition().collection(EDGE_COLLECTION_NAME2)
-////                .from(VERTEXT_COLLECTION_NAME3)
-////                .to(VERTEXT_COLLECTION_NAME2));
         try {
             db2.createGraph(GRAPH_NAME2, edgeDefinitions2, null);
             addTestData();
@@ -91,10 +88,10 @@ public abstract class BaseGraphTest {
     public static void addTestData() throws ArangoDBException {
 
         // 创建顶点信息
-        final VertexEntity lilianjie = saveActor(new Actor("lilianjie", "李连杰", "1970", "功夫皇帝"));
-        final VertexEntity chenglong = saveActor(new Actor("chenglong", "成龙", "1960", "色狼"));
-        final VertexEntity fanbingbing = saveActor(new Actor("fanbingbing", "饭冰冰", "1980", "bingbing"));
-        final VertexEntity hongjinbao = saveActor(new Actor("hongjinbao", "洪金宝", "1960", "色狼"));
+        final VertexEntity lilianjie = saveActor(new Actor("lilianjie", "李连杰", "1970", "李连杰：功夫皇帝"));
+        final VertexEntity chenglong = saveActor(new Actor("chenglong", "成龙", "1960", "成龙：拼命三郎"));
+        final VertexEntity fanbingbing = saveActor(new Actor("fanbingbing", "饭冰冰", "1980", "饭冰冰：睡兵连"));
+        final VertexEntity hongjinbao = saveActor(new Actor("hongjinbao", "洪金宝", "1960", "洪金宝：睡兵连长"));
 
         final VertexEntity m1 = saveMovie(new Movie("m1",  "功夫之王",  "1995",  "1995",  "功夫之王"));
         final VertexEntity m2 = saveMovie(new Movie("m2",  "不眠之夜",  "1995",  "1995",  "不眠之夜"));
