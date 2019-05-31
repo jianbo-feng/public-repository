@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: liqiubase-demo
+  h2:
+    console:
+      enabled: true
+  datasource:
+    url: jdbc:h2:file:~/.h2/testdb
+#  datasource:
+#    driver-class-name: com.mysql.jdbc.Driver
+#    username: root
+#    password:
+#    url: jdbc:mysql://localhost:3309/liqiubase-demo?useSSL=false&useUnicode=true&characterEncoding=UTF-8
+  liquibase:
+    enabled: true
+server:
+  port: 62
