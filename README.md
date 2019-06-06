@@ -1,6 +1,6 @@
 # public-repository
 ## 简介
->该Repository主要是存放日常的一些示例项目或可共享的项目，例如SpringBoot集成Swagger、Liqiubase等等
+该Repository主要是存放日常的一些示例项目或可共享的项目，例如SpringBoot集成Swagger、Liqiubase等等
 ## 项目列表
 ### swagger-demo
 ```
@@ -13,8 +13,9 @@ Liquibase是一个数据库表结构迭代演进变更的管理工具。开发�
 官网地址：[这里](http://www.liquibase.org)
 ```
 ### arangodb-demo
->本地安装好ArangoDB服务器，默认系统管理员(root)密码为空或"root"
 ```
+本地安装好ArangoDB服务器，默认系统管理员(root)密码为空或"root"
+
 主要涉及几个部分的测试：
 1. 基本的文档操作 com.feng.arangodb.base.TestArangoDemo.java
 2. Graph操作 com.feng.arangodb.graph.GraphTraversalsInAQLExample.java(& com.feng.arangodb.graph.BaseGraphTest.java)
