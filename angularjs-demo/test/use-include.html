@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AngularJS use-include</title>
+    <script language="JavaScript" src="../script/angular.js"></script>
+</head>
+<body ng-model="myApp" ng-controller="siteCtrl">
+    <div ng-include="runoob.html"/>
+    <div ng-include="'https://c.runoob.com/runoobtest/angular_include.php'"></div>
+
+    <script>
+        let app = angular.module('myApp', []);
+        app.controller('siteCtrl', function ($scope, $http, $sceDelegateProvider) {
+            $scope.names = [
+                {
+                    id: 1,
+                    name: '百度',
+                    url: 'http://wwww.baidu.com'
+                },
+                {
+                    id: 2,
+                    name: '网易',
+                    url: 'http://www.163.com'
+                },
+                {
+                    id: 3,
+                    name: '搜狐',
+                    url: 'http://www.sohu.com'
+                }
+            ];
+            $sceDelegateProvider.resourceUrlWhitelist([
+                'https://c.runoob.com/runoobtest/**'
+            ]);
+        });
+    </script>
+</body>
+</html>

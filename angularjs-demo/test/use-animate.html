@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AngularJS use-Animate</title>
+    <style>
+        @keyframes myChange {
+            from {
+                height: 100px;
+            } to {
+                  height: 0;
+              }
+        }
+        div {
+            height: 100px;
+            background-color: lightblue;
+        }
+        div.ng-hide {
+            animation: 0.5s myChange;
+        }
+    </style>
+    <script language="JavaScript" src="../script/angular.js"></script>
+    <script language="JavaScript" src="../script/angular-animate.js"></script>
+</head>
+<body ng-app="myApp">
+    <h1>隐藏 DIV: <input type="checkbox" ng-model="myCheck"></h1>
+    <div ng-hide="myCheck"></div>
+    <script>
+        // 如果我们应用已经设置了应用名，可以把 ngAnimate 直接添加在模型中：
+        var app = angular.module('myApp', ['ngAnimate']);
+    </script>
+</body>
+</html>

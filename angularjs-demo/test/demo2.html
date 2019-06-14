@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="../script/angular.min.js"></script>
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="myCtrl">
+        名: <input type="text" ng-model="firstName"><br>
+        姓: <input type="text" ng-model="lastName"><br>
+        <br>
+        姓名: {{firstName + " " + lastName}}
+        <button ng-click="reset()">RESET</button>
+        <pre>master = {{master | json}}</pre>
+    </div>
+
+    <script>
+    var myApp = angular.module('myApp', []);
+    myApp.controller('myCtrl', function($scope) {
+        $scope.firstName = "张";
+        $scope.lastName = "大狗";
+        $scope.master = angular.copy({
+            firstName: $scope.firstName,
+            lastName: $scope.lastName
+        });
+        $scope.reset = function() {
+            angular.copy($scope.master, $scope.user);
+        }; 
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AngularJS table-demo</title>
+    <style>
+        table, th , td  {
+            border: 1px solid grey;
+            border-collapse: collapse;
+            padding: 5px;
+        }
+        table tr:nth-child(odd)	{
+            background-color: #f1f1f1;
+        }
+        table tr:nth-child(even) {
+            background-color: #ffffff;
+        }
+    </style>
+    <script src="../script/angular.js" charset="UTF-8"></script>
+</head>
+<body>
+    <div ng-app="tableApp" ng-controller="customersCtrl">
+        <table>
+            <tr ng-repeat="x in names">
+                <td>{{ x.Name }}</td>
+                <td>{{ x.Country }}</td>
+            </tr>
+        </table>
+        {{data}}
+    </div>
+
+    <script language="JavaScript">
+        var app = angular.module('tableApp', []);
+        app.controller('customersCtrl', function($scope, $http) {
+            /*$sceDelegateProvider.resourceUrlWhitelist([
+                'https://www.runoob.com/!**'
+            ]);*/
+           /* $http.get("https://www.runoob.com/try/angularjs/data/Customers_JSON.php")
+                .then(function (result) {
+                    $scope.names = result.data.records;
+                });*/
+           $http.get('https://www.runoob.com/try/angularjs/data/Customers_JSON.php')
+               .then(function (reponse) {
+                   $scope.data = reponse.data.records;
+               }, function (err) {
+                   alert('接收异常');
+               })
+           $scope.names = [
+               {
+                   "Name": "Alfreds Futterkiste",
+                   "City": "Berlin",
+                   "Country": "Germany"
+               },
+               {
+                   "Name": "Ana Trujillo Emparedados y helados",
+                   "City": "México D.F.",
+                   "Country": "Mexico"
+               },
+               {
+                   "Name": "Antonio Moreno Taquería",
+                   "City": "México D.F.",
+                   "Country": "Mexico"
+               },
+               {
+                   "Name": "Around the Horn",
+                   "City": "London",
+                   "Country": "UK"
+               },
+               {
+                   "Name": "B's Beverages",
+                   "City": "London",
+                   "Country": "UK"
+               },
+               {
+                   "Name": "Berglunds snabbköp",
+                   "City": "Luleå",
+                   "Country": "Sweden"
+               },
+               {
+                   "Name": "Blauer See Delikatessen",
+                   "City": "Mannheim",
+                   "Country": "Germany"
+               },
+               {
+                   "Name": "Blondel père et fils",
+                   "City": "Strasbourg",
+                   "Country": "France"
+               },
+               {
+                   "Name": "Bólido Comidas preparadas",
+                   "City": "Madrid",
+                   "Country": "Spain"
+               },
+               {
+                   "Name": "Bon app'",
+                   "City": "Marseille",
+                   "Country": "France"
+               },
+               {
+                   "Name": "Bottom-Dollar Marketse",
+                   "City": "Tsawassen",
+                   "Country": "Canada"
+               },
+               {
+                   "Name": "Cactus Comidas para llevar",
+                   "City": "Buenos Aires",
+                   "Country": "Argentina"
+               },
+               {
+                   "Name": "Centro comercial Moctezuma",
+                   "City": "México D.F.",
+                   "Country": "Mexico"
+               },
+               {
+                   "Name": "Chop-suey Chinese",
+                   "City": "Bern",
+                   "Country": "Switzerland"
+               },
+               {
+                   "Name": "Comércio Mineiro",
+                   "City": "São Paulo",
+                   "Country": "Brazil"
+               }
+           ];
+        });
+    </script>
+</body>
+</html>

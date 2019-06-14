@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AngularJS Use API</title>
+    <script src="../script/angular.js" type="text/javascript"></script>
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <p>{{ x1 }}</p>
+        <p>大写转小写: {{ x2 }}</p>
+        <p>小写再转大写：{{ x3 }}</p>
+        <p>{{x1}} 是不是字符串：{{x4}}</p>
+        <p>{{x1}} 是不是数字：{{x5}}</p>
+        <p>{{x1}} 是不是数组：{{x6}}</p>
+        <p>{{x1}} 是不是Function：{{x7}}</p>
+    </div>
+    <script>
+        let app = angular.module('myApp', []);
+        app.controller('myCtrl', function ($scope) {
+            $scope.x1 = 'RunOOB';
+            $scope.x2 = angular.$$lowercase($scope.x1);
+            $scope.x3 = angular.$$uppercase($scope.x2);
+            $scope.x4 = angular.isString($scope.x1);
+            $scope.x5 = angular.isNumber($scope.x1);
+            $scope.x6 = angular.isArray($scope.x1);
+            $scope.x7 = angular.isFunction($scope.x1);
+        });
+    </script>
+</body>
+</html>

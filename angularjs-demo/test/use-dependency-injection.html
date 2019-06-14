@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AngularJS Dependency Injection</title>
+    <script language="JavaScript" src="../script/angular.js"></script>
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="CalcController">
+        请输入数字：<input type="text" name="num" ng-model="number"/><br/>
+        <button ng-click="square()">X<sup>2</sup></button><br/>
+        计算结果：{{ result }}
+    </div>
+    <script>
+        let mainApp = angular.module('myApp', []);
+        mainApp.value('defaultInput', 5);
+        mainApp.factory('MathService', function () {
+            let factory = {};
+            factory.multiply = function (a, b) {
+                return a * b;
+            }
+            return factory;
+        });
+
+        mainApp.service('CalcService', function (MathService) {
+           this.square = function (a) {
+               return MathService.multiply(a, a);
+           }
+        });
+
+        mainApp.controller('CalcController', function ($scope, CalcService, defaultInput) {
+            $scope.number = defaultInput;
+            $scope.result = CalcService.square($scope.number);
+            $scope.square = function(){
+                $scope.result = CalcService.square($scope.number);
+            }
+        })
+    </script>
+</body>
+</html>

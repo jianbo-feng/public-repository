@@ -23,5 +23,5 @@ public class ArangoDbConfig {
     /**
      * 密码
      */
-    public final static String password = "";
+    public final static String password = "root";
 }
