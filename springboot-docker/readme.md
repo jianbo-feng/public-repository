@@ -35,3 +35,8 @@ setting.xml文件servers节点下添加
 docker push zhangsan/docker2:latest 
 我本地的git账户有点混乱（即有github、又有gitlad），直接使用idea的docker-push操作未成功，使用终端进行推送则成功
 ```
+
+## 在Kitematic中查看推送结果
+```
+推送结束之后，先退出kitematic，再启动；可在 My Repos、My Images中看到最新的镜像
+```
