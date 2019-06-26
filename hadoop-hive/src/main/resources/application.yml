@@ -1,0 +1,26 @@
+hive:
+  url: jdbc:hive2://192.168.99.100:32797/default
+  driver-class-name: org.apache.hive.jdbc.HiveDriver
+  type: com.alibaba.druid.pool.DruidDataSource
+  user: hive
+  password: hive
+  # 下面为连接池的补充设置，应用到上面所有数据源中
+  # 初始化大小，最小，最大
+  initial-size: 1
+  min-idle: 3
+  max-active: 20
+  # 配置获取连接等待超时的时间
+  max-wait: 60000
+  # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+  time-between-eviction-runs-millis: 60000
+  # 配置一个连接在池中最小生存的时间，单位是毫秒
+  min-evictable-idle-time-millis: 30000
+  validation-query: select 1
+  test-while-idle: true
+  test-on-borrow: false
+  test-on-return: false
+  # 打开PSCache，并且指定每个连接上PSCache的大小
+  pool-prepared-statements: true
+  max-pool-prepared-statement-per-connection-size: 20
+server:
+  port: 5050
