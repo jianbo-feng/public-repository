@@ -10,4 +10,4 @@ http://127.0.0.1:6060/kafka-producer/send?message=你好，
 ##### 发送JSON数据，并添加回调函数
 http://127.0.0.1:6060/kafka-producer/sendJson
 
-#### 鸣谢https://blog.csdn.net/yfz792178428/article/details/83411881 这位博客朋友，在该博友的项目基础上做了相应的修改
+#### 鸣谢 https://blog.csdn.net/yfz792178428/ 这位博客朋友，在该博友的项目基础上做了相应的修改
