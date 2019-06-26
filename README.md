@@ -28,3 +28,8 @@ AngularJS1.7.8 学习示例代码
 ```
 springboot2.1.6 开发的项目推送到docker，并在kitematic中呈现
 ```
+### kafka
+```
+spring-kafka 生产消息以及消费消息
+包括字符串消息、JSON数据发送
+```
