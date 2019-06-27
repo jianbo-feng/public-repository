@@ -55,7 +55,28 @@
 			<artifactId>crate</artifactId>
 			<version>3.1.6</version>
 		</dependency>
+		<dependency>
+			<groupId>io.crate</groupId>
+			<artifactId>crate-jdbc</artifactId>
+			<version>2.5.1</version>
+		</dependency>
+		<dependency>
+			<groupId>io.crate</groupId>
+			<artifactId>crate-jdbc-standalone</artifactId>
+			<version>2.5.1</version>
+		</dependency>
 	</dependencies>
+
+	<repositories>
+		<repository>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<id>central</id>
+			<name>bintray</name>
+			<url>http://dl.bintray.com/crate/crate</url>
+		</repository>
+	</repositories>
 
 	<build>
 		<plugins>
