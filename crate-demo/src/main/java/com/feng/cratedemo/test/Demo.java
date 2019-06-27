@@ -21,7 +21,7 @@ public class Demo {
             System.err.println("连接成功!!!!");
         }
         else {
-            System.err.println("连接关闭");
+            System.err.println("连接关闭!!!");
         }
 
         Statement statement = connection.createStatement();
@@ -42,6 +42,15 @@ public class Demo {
             String tableName = resultSet.getString("table_name");
             System.err.println("tableName => " + tableName);
         }
+
+        sql = "SELECT id,name,age FROM demoapp LIMIT 100;";
+        resultSet = statement.executeQuery(sql);
+        while (resultSet.next()) {
+            int colId = resultSet.getInt(1);
+            String colName = resultSet.getString(2);
+            String colAge = resultSet.getString(3);
+            System.err.println("id：" + colId + ", name：" + colName + ", age：" + colAge);
+        }
         statement.close();
         resultSet.close();
         connection.close();
@@ -54,10 +63,10 @@ public class Demo {
     public static void test() {
         try {
             CrateDriver driver = new CrateDriver();
-            Properties properties = new Properties();
-            properties.setProperty("user", USER);
-            properties.setProperty("password", PASSWORD);
-            Connection connection = driver.connect(URL, properties);
+            Properties info = new Properties();
+            info.setProperty("user", USER);
+            info.setProperty("password", PASSWORD);
+            Connection connection = driver.connect(URL, info);
             System.err.println("使用CreateDriver链接成功.....");
             connection.close();
         }
