@@ -33,3 +33,7 @@ springboot2.1.6 开发的项目推送到docker，并在kitematic中呈现
 spring-kafka 生产消息以及消费消息
 包括字符串消息、JSON数据发送
 ```
+### crate-demo
+```
+crate-demo 使用Java、CrateDriver链接CrateDB
+```
