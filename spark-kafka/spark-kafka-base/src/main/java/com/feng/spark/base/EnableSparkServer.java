@@ -18,7 +18,7 @@ import org.springframework.context.annotation.Import;
 @Documented
 @Inherited
 @SpringBootApplication
-@ComponentScan("com.ai.base")
+@ComponentScan("com.feng.spark.base")
 @EnableAutoConfiguration(exclude = { org.springframework.boot.autoconfigure.gson.GsonAutoConfiguration.class,
 		org.springframework.boot.autoconfigure.cassandra.CassandraAutoConfiguration.class })
 
