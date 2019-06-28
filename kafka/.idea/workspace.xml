@@ -1,7 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="46049916-72d1-48a5-bb31-4bbe21ffa973" name="Default Changelist" comment="" />
+    <list default="true" id="46049916-72d1-48a5-bb31-4bbe21ffa973" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../spark-kafka/spark-kafka-base/src/main/java/com/feng/spark/base/EnableSparkServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spark-kafka/spark-kafka-base/src/main/java/com/feng/spark/base/KafkaStreamBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spark-kafka/spark-kafka-base/src/main/java/com/feng/spark/base/SparkServerMarkerConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spark-kafka/spark-kafka-base/src/main/java/com/feng/spark/base/config/CassandraProperties.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spark-kafka/spark-kafka-base/src/main/java/com/feng/spark/base/config/KafkaProperties.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spark-kafka/spark-kafka-base/src/main/java/com/feng/spark/base/config/MongodbProperties.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spark-kafka/spark-kafka-base/src/main/java/com/feng/spark/base/config/SparkProperties.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spark-kafka/spark-kafka-base/src/main/java/com/feng/spark/base/config/SparkServerConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spark-kafka/spark-kafka-base/src/main/java/com/feng/spark/base/entity/InboundEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spark-kafka/spark-kafka-base/src/main/java/com/feng/spark/base/entity/OutboundData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spark-kafka/spark-kafka-base/src/main/java/com/feng/spark/base/util/MongoClientWrapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spark-kafka/spark-kafka-base/src/main/java/com/feng/spark/base/util/MongodbConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spark-kafka/spark-kafka-base/src/main/java/com/feng/spark/base/util/MongodbWriter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spark-kafka/spark-kafka-demo/src/main/java/com/feng/spark/sparkkafkademo/entity/OrderEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spark-kafka/spark-kafka-demo/src/main/java/com/feng/spark/sparkkafkademo/entity/OrderEventDecoder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spark-kafka/spark-kafka-demo/src/main/java/com/feng/spark/sparkkafkademo/entity/TotalProducts.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spark-kafka/spark-kafka-demo/src/main/java/com/feng/spark/sparkkafkademo/processor/DemoProcessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/kafka-producer/target/" />
     <ignored path="$PROJECT_DIR$/kafka-consumer/target/" />
     <ignored path="$PROJECT_DIR$/kafkabean/target/" />
@@ -17,24 +36,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/kafkabean/pom.xml">
+        <entry file="file://$PROJECT_DIR$/kafka-producer/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="35" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
+            <state relative-caret-position="374">
+              <caret line="22" column="82" selection-start-line="21" selection-start-column="8" selection-end-line="22" selection-end-column="82" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/kafka-producer/src/main/java/com/zeshan/kafka/KafkaApplication.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/kafka-consumer/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="12" selection-start-line="12" selection-end-line="12" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#244#245#0" expanded="true" />
-                <element signature="e#302#303#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="103">
+              <caret line="21" column="8" lean-forward="true" selection-start-line="21" selection-start-column="8" selection-end-line="22" selection-end-column="82" />
             </state>
           </provider>
         </entry>
@@ -51,8 +65,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/kafka-producer/src/main/java/com/zeshan/kafka/ProducerController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="62">
-              <caret line="55" column="28" selection-start-line="55" selection-start-column="28" selection-end-line="55" selection-end-column="28" />
+            <state relative-caret-position="300">
+              <caret line="71" column="17" selection-start-line="71" selection-start-column="17" selection-end-line="71" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -75,16 +89,16 @@
         <entry file="file://$PROJECT_DIR$/kafka-consumer/src/main/resources/application.properties">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="153">
-              <caret line="9" column="29" lean-forward="true" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
+              <caret line="9" column="29" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/kafka-producer/src/main/resources/application.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="24" lean-forward="true" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
+            <state relative-caret-position="102">
+              <caret line="6" column="12" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -92,7 +106,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/kafka-consumer/src/main/java/com/zeshan/kafkaconsumer/Consumer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="490">
+            <state relative-caret-position="612">
               <caret line="50" column="29" selection-start-line="50" selection-start-column="29" selection-end-line="50" selection-end-column="29" />
             </state>
           </provider>
@@ -204,9 +218,24 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
-      <pane id="ProjectPane" />
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="kafka" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kafka" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kafka" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kafka" type="462c0819:PsiDirectoryNode" />
+              <item name="kafka-consumer" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -220,7 +249,7 @@
     <property name="android.sdk.path" value="$PROJECT_DIR$/../../../sdks/android" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="ignore_missing_gitignore" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../spark-kafka" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -276,15 +305,15 @@
       <workItem from="1561510496686" duration="6688000" />
       <workItem from="1561555241226" duration="541000" />
       <workItem from="1561686607048" duration="3366000" />
+      <workItem from="1561706157768" duration="6279000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11727000" />
+    <option name="totallyTimeSpent" value="18006000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="688" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.297541" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -359,20 +388,6 @@
     <entry file="jar://$MAVEN_REPOSITORY$/org/apache/kafka/kafka-clients/2.0.1/kafka-clients-2.0.1-sources.jar!/org/apache/kafka/clients/consumer/Consumer.java" />
     <entry file="file://$PROJECT_DIR$/kafka-producer/src/main/java/com/zeshan/kafka/bean/User.java" />
     <entry file="jar://$MAVEN_REPOSITORY$/com/alibaba/fastjson/1.2.58/fastjson-1.2.58-sources.jar!/com/alibaba/fastjson/JSONObject.java" />
-    <entry file="file://$PROJECT_DIR$/kafka-producer/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="30" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/kafka-consumer/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1054">
-          <caret line="62" selection-start-line="62" selection-end-line="62" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/kafkabean/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -382,7 +397,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/kafka-producer/src/main/java/com/zeshan/kafka/KafkaApplication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
+        <state relative-caret-position="204">
           <caret line="12" selection-start-line="12" selection-end-line="12" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -392,10 +407,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kafkabean/src/main/java/com/zeshan/kafka/bean/User.java">
+    <entry file="file://$PROJECT_DIR$/kafka-consumer/src/main/java/com/zeshan/kafkaconsumer/Consumer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        <state relative-caret-position="612">
+          <caret line="50" column="29" selection-start-line="50" selection-start-column="29" selection-end-line="50" selection-end-column="29" />
         </state>
       </provider>
     </entry>
@@ -419,17 +434,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kafka-consumer/src/main/java/com/zeshan/kafkaconsumer/Consumer.java">
+    <entry file="file://$PROJECT_DIR$/kafka-consumer/src/main/resources/application.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="490">
-          <caret line="50" column="29" selection-start-line="50" selection-start-column="29" selection-end-line="50" selection-end-column="29" />
+        <state relative-caret-position="153">
+          <caret line="9" column="29" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kafka-producer/src/main/java/com/zeshan/kafka/ProducerController.java">
+    <entry file="file://$PROJECT_DIR$/kafka-producer/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="62">
-          <caret line="55" column="28" selection-start-line="55" selection-start-column="28" selection-end-line="55" selection-end-column="28" />
+        <state relative-caret-position="374">
+          <caret line="22" column="82" selection-start-line="21" selection-start-column="8" selection-end-line="22" selection-end-column="82" />
         </state>
       </provider>
     </entry>
@@ -445,17 +460,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kafka-consumer/src/main/resources/application.properties">
+    <entry file="file://$PROJECT_DIR$/kafkabean/src/main/java/com/zeshan/kafka/bean/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="29" lean-forward="true" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kafka-producer/src/main/java/com/zeshan/kafka/ProducerController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="71" column="17" selection-start-line="71" selection-start-column="17" selection-end-line="71" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/kafka-producer/src/main/resources/application.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="24" lean-forward="true" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
+        <state relative-caret-position="102">
+          <caret line="6" column="12" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kafka-consumer/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="103">
+          <caret line="21" column="8" lean-forward="true" selection-start-line="21" selection-start-column="8" selection-end-line="22" selection-end-column="82" />
         </state>
       </provider>
     </entry>
