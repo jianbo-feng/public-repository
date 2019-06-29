@@ -25,15 +25,15 @@ http://localhost:8161/
 ## 基本命令
 ```
 1、查看版本
-activemq --version
+    activemq --version
 2、启动
-activemq start
+    activemq start
 3、停止
-activemq stop
+    activemq stop
 4、重启
-activemq restart
+    activemq restart
 5、查看状态
-activemq status
+    activemq status
 ```
 
 ## 当前示例说明
