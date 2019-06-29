@@ -46,6 +46,6 @@ activemq status
     http://localhost:9080/jms/activemq/topic?msg=hello，
     消费端监听器（ConsumerTopic）能获得数据    
 3、JSON数据发送
-http://localhost:9080/jms/activemq/json?model=topic 消息主题模式发送
-http://localhost:9080/jms/activemq/json 队列模式发送
+    http://localhost:9080/jms/activemq/json?model=topic 消息主题模式发送
+    http://localhost:9080/jms/activemq/json 队列模式发送
 ```
