@@ -6,9 +6,12 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jms.annotation.EnableJms;
 
+/**
+ * 消息监听配置
+ */
 @Configuration
 @EnableJms
-public class JSMListeners {
+public class JMSListeners {
 
     /**
      * 点对点
