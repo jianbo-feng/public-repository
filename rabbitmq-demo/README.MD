@@ -39,4 +39,31 @@ Exchange分发消息时根据类型的不同分发策略有区别，目前共四
 ## 其他
 ```
 https://github.com/jianbo-feng/public-repository/tree/master/rabbitmq-demo
+
+Docker安装
+docker pull rabbitmq:management
+
+Docker启动
+    docker run -d --hostname my-rabbit --name rabbit -p 15672:15672 -p 5672:5672 -p 25672:25672 -p 1883:1883  db322a6c3b84
+    或
+    docker run -d --hostname my-rabbit --name rabbit -p 15672:15672 -p 5672:5672 -p 25672:25672 -p 1883:1883 -p 4369:4369  db322a6c3b84
+
+    >>特别说明：db322a6c3b84 为docker 里面的image(镜像)id
+
+    docker run -d --hostname my-rabbit --name rabbit -p 8080:15672 rabbitmq:management
+    --hostname：指定容器主机名称
+    --name:指定容器名称
+    -p:将mq端口号映射到本地
+
+    或在运行时设置用户和密码
+    docker run -d --hostname my-rabbit --name rabbit -e RABBITMQ_DEFAULT_USER=admin -e RABBITMQ_DEFAULT_PASS=admin -p 15672:15672 -p 5672:5672 -p 25672:25672 -p 61613:61613 -p 1883:1883 rabbitmq:management
+    15672：控制台端口号
+    5672：应用访问端口号
+    
+查看rabbit运行状况
+    docker logs rabbit
+
+Web管理平台
+http://localhost:15672/#/
+默认用户名和密码均为guest
 ```
