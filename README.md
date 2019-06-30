@@ -37,3 +37,11 @@ spring-kafka 生产消息以及消费消息
 ```
 crate-demo 使用Java、CrateDriver链接CrateDB
 ```
+### activemq-demo
+```
+activemq-demo Springboot2.0.4+Activemq5.15.9
+```
+### rabbitmq-demo
+```
+rabbitmq-demo Springboot2.1.6+RabbitMQ
+```
