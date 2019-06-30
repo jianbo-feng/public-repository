@@ -1,0 +1,13 @@
+spring:
+  banner:
+    charset: UTF-8
+    location: banner.txt
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+  application:
+    name: springboot-rabbitmq
+server:
+  port: 9081
