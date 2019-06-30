@@ -35,3 +35,8 @@ Exchange分发消息时根据类型的不同分发策略有区别，目前共四
 2、activemq的默认账户及密码均为guest, 若设置了其他账户和密码，请在application.yml中修改
 3、activemq的端口是否为默认端口（是否修改为其他端口以及是否被防火墙拦截等等，或者Docker映射的原因等等），不一致请修改为相应端口
 ```
+
+## 其他
+```
+https://github.com/jianbo-feng/public-repository/tree/master/rabbitmq-demo
+```
