@@ -87,7 +87,7 @@ C:\work\servers\rocketmq-all-4.5.1
     rocketmq.config.loginRequired=false
 2. 编译启动
     进入‘\rocketmq-externals\rocketmq-console’文件夹，执行‘mvn clean package -Dmaven.test.skip=true’，编译生成。
-    编译成功之后，Cmd进入‘target’文件夹，执行‘java -jar rocketmq-console-ng-1.0.0.jar’，启动‘rocketmq-console-ng-1.0.0.jar’。3.测试        
+    编译成功之后，Cmd进入‘target’文件夹，执行‘java -jar rocketmq-console-ng-1.0.1.jar’，启动‘rocketmq-console-ng-1.0.0.jar’。3.测试        
     浏览器中输入‘127.0.0.1：配置端口’，成功后即可查看。
     http://localhost:8081/#/
 ```
