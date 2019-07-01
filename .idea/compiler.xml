@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="kafka-producer" />
+        <module name="kafka-consumer" />
+        <module name="arangodb-demo" />
+        <module name="docker2" />
+        <module name="rabbitmq-demo" />
+        <module name="spark-kafka-demo" />
+        <module name="liqiubase-demo" />
+        <module name="spark-stream-kafka" />
+        <module name="base" />
+        <module name="crate-demo" />
+        <module name="kafka-bean" />
+        <module name="swagger-demo" />
+        <module name="activemq-demo" />
+        <module name="hadoop-hive" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="activemq-demo" target="1.8" />
+      <module name="arangodb-demo" target="1.8" />
+      <module name="base" target="1.8" />
+      <module name="crate-demo" target="1.8" />
+      <module name="docker2" target="1.8" />
+      <module name="hadoop-hive" target="1.8" />
+      <module name="kafka-bean" target="1.5" />
+      <module name="kafka-consumer" target="1.8" />
+      <module name="kafka-producer" target="1.8" />
+      <module name="liqiubase-demo" target="1.8" />
+      <module name="rabbitmq-demo" target="1.8" />
+      <module name="spark-kafka-demo" target="1.8" />
+      <module name="spark-stream-kafka" target="1.8" />
+      <module name="swagger-demo" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="activemq-demo" options="-parameters" />
+      <module name="base" options="-parameters" />
+      <module name="docker2" options="-parameters" />
+      <module name="spark-kafka-demo" options="-parameters" />
+      <module name="spark-stream-kafka" options="-parameters" />
+      <module name="swagger-demo" options="-parameters" />
+    </option>
+  </component>
+</project>

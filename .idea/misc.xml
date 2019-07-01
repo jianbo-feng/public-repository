@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/activemq-demo" />
+  </component>
+  <component name="JavaScriptSettings">
+    <option name="languageLevel" value="ES6" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/activemq-demo/pom.xml" />
+        <option value="$PROJECT_DIR$/swagger-demo/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-docker/pom.xml" />
+        <option value="$PROJECT_DIR$/spark-stream-kafka/pom.xml" />
+        <option value="$PROJECT_DIR$/spark-kafka/spark-kafka-base/pom.xml" />
+        <option value="$PROJECT_DIR$/spark-kafka/spark-kafka-demo/pom.xml" />
+        <option value="$PROJECT_DIR$/rabbitmq-demo/pom.xml" />
+        <option value="$PROJECT_DIR$/liqiubase-demo/pom.xml" />
+        <option value="$PROJECT_DIR$/kafka/kafkabean/pom.xml" />
+        <option value="$PROJECT_DIR$/kafka/kafka-producer/pom.xml" />
+        <option value="$PROJECT_DIR$/kafka/kafka-consumer/pom.xml" />
+        <option value="$PROJECT_DIR$/hadoop-hive/pom.xml" />
+        <option value="$PROJECT_DIR$/crate-demo/pom.xml" />
+        <option value="$PROJECT_DIR$/arangodb-demo/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_12" default="false" project-jdk-name="1.8.0_201" project-jdk-type="JavaSDK" />
+</project>
