@@ -45,3 +45,7 @@ activemq-demo Springboot2.0.4+Activemq5.15.9
 ```
 rabbitmq-demo Springboot2.1.6+RabbitMQ
 ```
+### rocketmq-demo
+```
+rocketmq-demo Springboot2.1.6+RocketMQ(v: 4.5.1)
+```
