@@ -49,3 +49,7 @@ rabbitmq-demo Springboot2.1.6+RabbitMQ
 ```
 rocketmq-demo Springboot2.1.6+RocketMQ(v: 4.5.1)
 ```
+### sofa-demo
+```
+sofa-demo 支付宝(alipay)RPC框架简单使用示例，以及SpringBoot2.X集成。
+```
