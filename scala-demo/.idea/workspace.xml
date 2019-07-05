@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b1c90698-3002-4f62-821c-3efe291cf5fe" name="Default Changelist" comment="" />
+    <list default="true" id="b1c90698-3002-4f62-821c-3efe291cf5fe" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/sample1/src/collect/test/CollectTest.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scala-mysql-demo/src/main/java/com/feng/scala/file/SourceUse.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sample1/scala2/MatchModel$.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sample1/scala2/MatchModel$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scala-mysql-demo/target/classes/com/feng/scala/db/DBUtils$.class" beforeDir="false" afterPath="$PROJECT_DIR$/scala-mysql-demo/target/classes/com/feng/scala/db/DBUtils$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scala-mysql-demo/target/classes/com/feng/scala/db/Operations.class" beforeDir="false" afterPath="$PROJECT_DIR$/scala-mysql-demo/target/classes/com/feng/scala/db/Operations.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scala-mysql-demo/target/classes/com/feng/scala/entity/User$.class" beforeDir="false" afterPath="$PROJECT_DIR$/scala-mysql-demo/target/classes/com/feng/scala/entity/User$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scala-mysql-demo/target/classes/com/feng/scala/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/scala-mysql-demo/target/classes/com/feng/scala/entity/User.class" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/scala-mysql-demo/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,8 +36,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scala-mysql-demo/src/main/java/com/feng/scala/MainTest.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="27" column="3" lean-forward="true" selection-start-line="27" selection-start-column="3" selection-end-line="27" selection-end-column="3" />
+            <state relative-caret-position="148">
+              <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
               <folding>
                 <element signature="e#24#59#0" expanded="true" />
               </folding>
@@ -36,7 +45,43 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scala-mysql-demo/src/main/java/com/feng/scala/file/SourceUse.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="286">
+              <caret line="39" column="21" lean-forward="true" selection-start-line="39" selection-start-column="21" selection-end-line="39" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/sample1/src/collect/test/CollectTest.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="13" column="55" selection-start-line="13" selection-start-column="55" selection-end-line="13" selection-end-column="55" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.13.0-sources.jar!/scala/io/Source.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="159">
+              <caret line="60" column="21" selection-start-line="60" selection-start-column="21" selection-end-line="60" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.13.0-sources.jar!/scala/io/Codec.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="491">
+              <caret line="55" column="6" selection-start-line="55" selection-start-column="6" selection-end-line="55" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scala-mysql-demo/src/main/java/com/feng/scala/db/DBUtils.scala">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="82">
@@ -62,24 +107,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="176">
               <caret line="866" column="21" selection-start-line="866" selection-start-column="4" selection-end-line="866" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/sql/PreparedStatement.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="76" column="13" selection-start-line="76" selection-start-column="4" selection-end-line="76" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/sql/Connection.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="137" column="21" selection-start-line="137" selection-start-column="4" selection-end-line="137" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -123,8 +150,10 @@
         <option value="$PROJECT_DIR$/scala-mysql-demo/pom.xml" />
         <option value="$PROJECT_DIR$/scala-mysql-demo/src/main/java/com/feng/scala/entity/User.scala" />
         <option value="$PROJECT_DIR$/scala-mysql-demo/src/main/java/com/feng/scala/db/Operations.scala" />
-        <option value="$PROJECT_DIR$/scala-mysql-demo/src/main/java/com/feng/scala/MainTest.scala" />
         <option value="$PROJECT_DIR$/scala-mysql-demo/src/main/java/com/feng/scala/db/DBUtils.scala" />
+        <option value="$PROJECT_DIR$/scala-mysql-demo/src/main/java/com/feng/scala/MainTest.scala" />
+        <option value="$PROJECT_DIR$/scala-mysql-demo/src/main/java/com/feng/scala/file/SourceUse.scala" />
+        <option value="$PROJECT_DIR$/sample1/src/collect/test/CollectTest.scala" />
       </list>
     </option>
   </component>
@@ -153,25 +182,18 @@
           <expand>
             <path>
               <item name="scala-demo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="scala-mysql-demo" type="462c0819:PsiDirectoryNode" />
+              <item name="sample1" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="scala-demo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="scala-mysql-demo" type="462c0819:PsiDirectoryNode" />
+              <item name="sample1" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="scala-demo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="scala-mysql-demo" type="462c0819:PsiDirectoryNode" />
+              <item name="sample1" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="scala-demo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="scala-mysql-demo" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -207,7 +229,20 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.MainTest">
+  <component name="RunManager" selected="Application.CollectTest">
+    <configuration name="CollectTest" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="collect.test.CollectTest" />
+      <module name="sample1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="collect.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MainTest" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="com.feng.scala.MainTest" />
       <module name="scala-mysql-demo" />
@@ -247,25 +282,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestLocationMain" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="scala.TestLocationMain" />
-      <module name="sample1" />
+    <configuration name="SourceUse" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="com.feng.scala.file.SourceUse" />
+      <module name="scala-mysql-demo" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="scala.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestMain" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="scala2.TestMain" />
-      <module name="sample1" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="scala2.*" />
+          <option name="PATTERN" value="com.feng.scala.file.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -275,11 +297,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.CollectTest" />
+        <item itemvalue="Application.SourceUse" />
         <item itemvalue="Application.MainTest" />
         <item itemvalue="Application.MatchModel" />
         <item itemvalue="Application.MyClassMain" />
-        <item itemvalue="Application.TestMain" />
-        <item itemvalue="Application.TestLocationMain" />
       </list>
     </recent_temporary>
   </component>
@@ -295,15 +317,16 @@
       <updated>1562222564878</updated>
       <workItem from="1562222567772" duration="1170000" />
       <workItem from="1562223975162" duration="4996000" />
-      <workItem from="1562289320752" duration="8621000" />
+      <workItem from="1562289320752" duration="11372000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14787000" />
+    <option name="totallyTimeSpent" value="17538000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="10" y="20" width="1346" height="688" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28460342" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -315,7 +338,7 @@
       <window_info id="Learn" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.6137184" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.4061372" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -483,16 +506,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scala-mysql-demo/src/main/java/com/feng/scala/MainTest.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" column="3" lean-forward="true" selection-start-line="27" selection-start-column="3" selection-end-line="27" selection-end-column="3" />
-          <folding>
-            <element signature="e#24#59#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scala-mysql-demo/src/main/java/com/feng/scala/db/Operations.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-34">
@@ -507,6 +520,44 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="82">
           <caret line="18" column="27" lean-forward="true" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.13.0-sources.jar!/scala/io/Codec.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="491">
+          <caret line="55" column="6" selection-start-line="55" selection-start-column="6" selection-end-line="55" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.13.0-sources.jar!/scala/io/Source.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="60" column="21" selection-start-line="60" selection-start-column="21" selection-end-line="60" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scala-mysql-demo/src/main/java/com/feng/scala/MainTest.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+          <folding>
+            <element signature="e#24#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scala-mysql-demo/src/main/java/com/feng/scala/file/SourceUse.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="39" column="21" lean-forward="true" selection-start-line="39" selection-start-column="21" selection-end-line="39" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sample1/src/collect/test/CollectTest.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="55" selection-start-line="13" selection-start-column="55" selection-end-line="13" selection-end-column="55" />
         </state>
       </provider>
     </entry>
