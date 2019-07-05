@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/sample1/sample1.iml" filepath="$PROJECT_DIR$/sample1/sample1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/scala-mysql-demo/scala-mysql-demo.iml" filepath="$PROJECT_DIR$/scala-mysql-demo/scala-mysql-demo.iml" />
     </modules>
   </component>
 </project>
