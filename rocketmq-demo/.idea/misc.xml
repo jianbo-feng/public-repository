@@ -3,9 +3,9 @@
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
-        <option value="$PROJECT_DIR$/rocket-producer/pom.xml" />
-        <option value="$PROJECT_DIR$/rocket-consumer/pom.xml" />
         <option value="$PROJECT_DIR$/rocket-bean/pom.xml" />
+        <option value="$PROJECT_DIR$/rocket-consumer/pom.xml" />
+        <option value="$PROJECT_DIR$/rocket-producer/pom.xml" />
       </list>
     </option>
   </component>

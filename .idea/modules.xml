@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/activemq-demo/activemq-demo.iml" filepath="$PROJECT_DIR$/activemq-demo/activemq-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/arangodb-demo/arangodb-demo.iml" filepath="$PROJECT_DIR$/arangodb-demo/arangodb-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spark-kafka/spark-kafka-base/base.iml" filepath="$PROJECT_DIR$/spark-kafka/spark-kafka-base/base.iml" />
+      <module fileurl="file://$PROJECT_DIR$/crate-demo/crate-demo.iml" filepath="$PROJECT_DIR$/crate-demo/crate-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springboot-docker/docker2.iml" filepath="$PROJECT_DIR$/springboot-docker/docker2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hadoop-hive/hadoop-hive.iml" filepath="$PROJECT_DIR$/hadoop-hive/hadoop-hive.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kafka/kafkabean/kafka-bean.iml" filepath="$PROJECT_DIR$/kafka/kafkabean/kafka-bean.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kafka/kafka-consumer/kafka-consumer.iml" filepath="$PROJECT_DIR$/kafka/kafka-consumer/kafka-consumer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kafka/kafka-producer/kafka-producer.iml" filepath="$PROJECT_DIR$/kafka/kafka-producer/kafka-producer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/liqiubase-demo/liqiubase-demo.iml" filepath="$PROJECT_DIR$/liqiubase-demo/liqiubase-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/public-repository.iml" filepath="$PROJECT_DIR$/.idea/public-repository.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rabbitmq-demo/rabbitmq-demo.iml" filepath="$PROJECT_DIR$/rabbitmq-demo/rabbitmq-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spark-kafka/spark-kafka-demo/spark-kafka-demo.iml" filepath="$PROJECT_DIR$/spark-kafka/spark-kafka-demo/spark-kafka-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spark-stream-kafka/spark-stream-kafka.iml" filepath="$PROJECT_DIR$/spark-stream-kafka/spark-stream-kafka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/swagger-demo/swagger-demo.iml" filepath="$PROJECT_DIR$/swagger-demo/swagger-demo.iml" />
+    </modules>
+  </component>
+</project>
