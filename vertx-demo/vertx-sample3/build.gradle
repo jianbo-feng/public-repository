@@ -1,0 +1,26 @@
+plugins {
+    id 'java'
+}
+
+group 'com.feng.vertx'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'io.vertx:vertx-core:3.7.1'
+    compile 'io.vertx:vertx-jdbc-client:3.7.1'
+    compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.47'
+    compile group: 'io.vertx', name: 'vertx-rx-java', version: '3.7.1'
+    compile group: 'io.vertx', name: 'vertx-web', version: '3.7.1'
+    compile group: 'io.vertx', name: 'vertx-web-client', version: '3.7.1'
+    compile group: 'io.vertx', name: 'vertx-web-common', version: '3.7.1'
+    compile 'io.vertx:vertx-tcp-eventbus-bridge:3.7.1'
+    compile group: 'com.alibaba', name: 'fastjson', version: '1.2.58'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
