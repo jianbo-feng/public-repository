@@ -171,6 +171,7 @@
       <change beforePath="$PROJECT_DIR$/../scala-demo/scala-mysql-demo/scala-mysql-demo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../scala-demo/scala-mysql-demo/scala-mysql-demo.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../spark-kafka/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../spark-kafka/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../spark-kafka/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../spark-kafka/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/vertx-sample1/.gradle/" />
@@ -226,8 +227,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/vertx-sample1/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="237">
-              <caret line="19" column="14" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
+            <state relative-caret-position="100">
+              <caret line="22" column="14" lean-forward="true" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -345,70 +346,13 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="sample1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="vertx-sample1" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="sample1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="vertx-sample1" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sample1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="vertx-sample1" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-              <item name="production" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sample1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="vertx-sample1" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-              <item name="production" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sample1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="vertx-sample1" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sample1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="vertx-sample1" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="sample1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="vertx-sample1" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sample1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="vertx-sample1" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="vertx" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sample1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
+      <pane id="ProjectPane" />
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="android.sdk.path" value="$PROJECT_DIR$/../../../../sdks/android" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -483,16 +427,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1563268693113</updated>
-      <workItem from="1563268700563" duration="2107000" />
+      <workItem from="1563268700563" duration="2734000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2107000" />
+    <option name="totallyTimeSpent" value="2734000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Designer" />
       <window_info id="Image Layers" />
@@ -503,7 +446,7 @@
       <window_info id="Alibaba Cloud Explorer" />
       <window_info id="Job Explorer" />
       <window_info id="Learn" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24054463" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24054463" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Build" />
       <window_info anchor="bottom" id="Messages" />
@@ -514,7 +457,7 @@
       <window_info anchor="bottom" id="Gradle View" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" />
-      <window_info anchor="bottom" id="Version Control" />
+      <window_info active="true" anchor="bottom" id="Version Control" visible="true" weight="0.30819672" />
       <window_info anchor="bottom" id="Flutter Performance" side_tool="true" />
       <window_info anchor="bottom" id="Alibaba Cloud View" />
       <window_info anchor="bottom" id="Console" />
@@ -648,8 +591,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/vertx-sample1/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="19" column="14" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
+        <state relative-caret-position="100">
+          <caret line="22" column="14" lean-forward="true" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
         </state>
       </provider>
     </entry>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue组件测试</title>
+    <link rel="stylesheet" href="../static/css/index.css">
+    <script type="text/javascript" src="../static/js/vue.min.js"></script>
+</head>
+<body>
+    <div id="components-demo">
+        <button-counter></button-counter>
+    </div>
+    <script>
+        Vue.component('button-counter', {
+            data: function () {
+                return {
+                    count : 0
+                }
+            },
+            template: '<button v-on:click="count++">You clicked me {{ count }} times.</button>'
+        })
+        let app = new Vue({
+            el: '#components-demo'
+        })
+    </script>
+</body>
+</html>
