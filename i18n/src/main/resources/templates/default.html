@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="zh_CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <p>
+        <span th:text="#{changeLanguage}"></span>
+        <a th:href="@{/?lang=zh_CN}" th:text="#{lang1}"></a>
+        <a th:href="@{/?lang=zh_TW}" th:text="#{lang2}"></a>
+        <a th:href="@{/?lang=en_US}" th:text="#{lang3}"></a>
+    </p>
+    <p>
+        <span th:text="#{name}"></span>
+    </p>
+</body>
+</html>

@@ -1,0 +1,13 @@
+server:
+  port: 8086
+  tomcat:
+    uri-encoding: UTF-8
+spring:
+  messages:
+    basename: i18n.messages
+    cache-duration: 3600
+    encoding: UTF-8
+    #fallback-to-system-locale: true
+  http:
+    encoding:
+      charset: UTF-8

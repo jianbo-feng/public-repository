@@ -5,7 +5,8 @@
       <GradleProjectSettings>
         <option name="distributionType" value="LOCAL" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/vertx-sample1" />
-        <option name="gradleHome" value="$PROJECT_DIR$/../../../../gradle-5.4.1" />
+        <option name="gradleHome" value="$PROJECT_DIR$/../../../servers/gradle-5.4.1" />
+        <option name="gradleJvm" value="1.8.0_201" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/vertx-sample1" />
@@ -16,46 +17,43 @@
       <GradleProjectSettings>
         <option name="distributionType" value="LOCAL" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/vertx-sample2" />
-        <option name="gradleHome" value="$PROJECT_DIR$/../../../../gradle-5.4.1" />
+        <option name="gradleHome" value="$PROJECT_DIR$/../../../servers/gradle-5.4.1" />
         <option name="gradleJvm" value="1.8.0_201" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/vertx-sample2" />
           </set>
         </option>
-        <option name="useAutoImport" value="true" />
         <option name="useQualifiedModuleNames" value="true" />
       </GradleProjectSettings>
       <GradleProjectSettings>
         <option name="distributionType" value="LOCAL" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/vertx-sample3" />
-        <option name="gradleHome" value="$PROJECT_DIR$/../../../../gradle-5.4.1" />
+        <option name="gradleHome" value="$PROJECT_DIR$/../../../servers/gradle-5.4.1" />
         <option name="gradleJvm" value="1.8.0_201" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/vertx-sample3" />
           </set>
         </option>
-        <option name="useAutoImport" value="true" />
         <option name="useQualifiedModuleNames" value="true" />
       </GradleProjectSettings>
       <GradleProjectSettings>
         <option name="distributionType" value="LOCAL" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/vertx-sample4" />
-        <option name="gradleHome" value="$PROJECT_DIR$/../../../../gradle-5.4.1" />
+        <option name="gradleHome" value="$PROJECT_DIR$/../../../servers/gradle-5.4.1" />
         <option name="gradleJvm" value="1.8.0_201" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/vertx-sample4" />
           </set>
         </option>
-        <option name="useAutoImport" value="true" />
         <option name="useQualifiedModuleNames" value="true" />
       </GradleProjectSettings>
       <GradleProjectSettings>
         <option name="distributionType" value="LOCAL" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/vertx-sample5" />
-        <option name="gradleHome" value="$PROJECT_DIR$/../../../../gradle-5.4.1" />
+        <option name="gradleHome" value="$PROJECT_DIR$/../../../servers/gradle-5.4.1" />
         <option name="gradleJvm" value="1.8.0_201" />
         <option name="modules">
           <set>
@@ -67,7 +65,7 @@
       <GradleProjectSettings>
         <option name="distributionType" value="LOCAL" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/vertx-sample6" />
-        <option name="gradleHome" value="$PROJECT_DIR$/../../../../gradle-5.4.1" />
+        <option name="gradleHome" value="$PROJECT_DIR$/../../../servers/gradle-5.4.1" />
         <option name="gradleJvm" value="1.8.0_201" />
         <option name="modules">
           <set>
@@ -79,7 +77,7 @@
       <GradleProjectSettings>
         <option name="distributionType" value="LOCAL" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/vertx-sample7" />
-        <option name="gradleHome" value="$PROJECT_DIR$/../../../../gradle-5.4.1" />
+        <option name="gradleHome" value="$PROJECT_DIR$/../../../servers/gradle-5.4.1" />
         <option name="gradleJvm" value="1.8.0_201" />
         <option name="modules">
           <set>
@@ -91,7 +89,7 @@
       <GradleProjectSettings>
         <option name="distributionType" value="LOCAL" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/vertx-sample8" />
-        <option name="gradleHome" value="$PROJECT_DIR$/../../../../gradle-5.4.1" />
+        <option name="gradleHome" value="$PROJECT_DIR$/../../../servers/gradle-5.4.1" />
         <option name="gradleJvm" value="1.8.0_201" />
         <option name="modules">
           <set>
