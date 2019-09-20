@@ -1,0 +1,16 @@
+server:
+  port: 8765
+  tomcat:
+    uri-encoding: UTF-8
+  servlet:
+    context-path: /eureka-demo
+spring:
+  application:
+    name: eureka-demo
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8762/eureka-server/eureka
+    register-with-eureka: true
+    enabled: false # 不启动eureka-client配置
