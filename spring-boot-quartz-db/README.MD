@@ -4,6 +4,7 @@
 1、会自动创建到Postgres指定数据的public(schema)、
 2、在PG库里面创建数据库：quartz, 再在quartz库里面创建schema：quartz，
     最后修改“tablePrefix: QRTZ_”为：tablePrefix: quartz.QRTZ_
+3、需要根据脚本table_postgres.sql 创建表
 ```
 
 ## 特别说明

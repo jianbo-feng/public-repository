@@ -23,3 +23,23 @@
 /dist/
 /nbdist/
 /.nb-gradle/
+
+### 通配以及子目录 ###
+/**/.idea
+/**/*.iws
+/**/*.iml
+/**/*.ipr
+/**/.apt_generated
+/**/.classpath
+/**/.factorypath
+/**/.project
+/**/.settings
+/**/.springBeans
+/**/.sts4-cache
+/**/target/
+/**/nbproject/private/
+/**/build/
+/**/nbbuild/
+/**/dist/
+/**/nbdist/
+/**/.nb-gradle/

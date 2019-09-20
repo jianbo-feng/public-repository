@@ -51,3 +51,7 @@ pagehelper:
   supportMethodsArguments: true
   params: count=countSql
   returnPageInfo: check
+server:
+  port: 8083
+  servlet:
+    context-path: /quartz-db
