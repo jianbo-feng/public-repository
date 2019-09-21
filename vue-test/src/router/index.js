@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import Fine from '@/components/Fine'
 import Index from '@/components/Index'
+import Trans2 from '@/components/Trans'
 Vue.use(Router)
 
 export default new Router({
@@ -26,6 +27,11 @@ export default new Router({
       path: '/fine',
       name: 'fine3',
       component: Fine
+    },
+    {
+      path: '/trans2',
+      name: 'trans2',
+      component: Trans2
     },
     {
       path: '/Math2',

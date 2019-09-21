@@ -6,6 +6,7 @@
     <li><router-link to="/fine">问候</router-link></li>
     <li><router-link to="/Math2">数学计算</router-link></li>
     <li><router-link to="/user">用户</router-link></li>
+    <li><router-link to="/trans2">用户</router-link></li>
   </ul>
   <router-view/>
   </div>
