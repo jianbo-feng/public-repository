@@ -2,8 +2,8 @@
   <div id="app">
     <img src="./assets/logo.png">
     <router-view/>
-    <!-- <Fine></Fine>
-    <Math2></Math2> -->
+    <!-- <Fine></Fine>-->
+    <Math2 :reportName="greeting" :url="greeting"></Math2>
   </div>
 </template>
 
@@ -14,7 +14,8 @@ import Math2 from './components/Math.vue'
 export default {
   data () {
     return {
-      msg: '欢迎来到菜鸟乐园'
+      msg: '欢迎来到菜鸟乐园',
+      greeting: '你好'
     }
   },
   components: {
