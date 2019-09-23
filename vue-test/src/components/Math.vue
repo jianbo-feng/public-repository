@@ -21,11 +21,17 @@ export default {
       default: ''
     }
   },
+  methods: {
+  },
   data () {
     return {
       ok: true,
       mssage: 'We are very happy!',
-      id: 1
+      id: 1,
+      user: {
+        userName: '小李张',
+        userPwd: '123455'
+      }
     }
   }
 
