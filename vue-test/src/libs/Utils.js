@@ -18,6 +18,20 @@ function getCookie (__key) {
   return __val
 }
 
+/**
+ * 通过正则表达式获取cookie
+ * @param {Object} __key
+ */
+function getCookie2 (__key) {
+  var arr, reg = new RegExp('(^| )' + __key + '=([^;]*)(;|$)')
+  if (arr = document.cookie.match(reg)) {
+    return unescape(arr[2])
+  } else {
+    return null
+  }
+}
+
 module.exports = {
-  getCookie: getCookie
+  getCookie: getCookie,
+  getCookie2: getCookie2
 }
