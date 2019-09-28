@@ -13,6 +13,7 @@
 </template>
 
 <script>
+let vm2
 export default {
   name: 'index',
   data () {
@@ -20,6 +21,10 @@ export default {
       msg: '欢迎来到Vue',
       p1: 'good luckcy'
     }
+  },
+  mounted: () => {
+    vm2 = this
+    console.log(vm2)
   }
 }
 </script>

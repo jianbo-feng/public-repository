@@ -28,6 +28,11 @@ export default {
     setUser: function () {
       this.$emit('transfer', this.user)// 将值绑定到transfer上传递过去
     }
+  },
+  mounted () {
+    let vm = this
+    let userId = vm.Utils.getCookie('userId')
+    console.log('cookie.userId => ', userId)
   }
 }
 </script>
