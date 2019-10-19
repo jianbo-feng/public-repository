@@ -58,7 +58,8 @@ public class QuartzManager {
                 }
             }
             JobDetail jobDetail = JobBuilder.newJob(jobClass)
-                    .usingJobData(jobDataMap)
+//                    .usingJobData(jobDataMap)
+                    .setJobData(jobDataMap)
                     .withIdentity(task.getTaskName(), task.getTaskGroup())// 任务名称和组构成任务key
                     .build();
             // 定义调度触发规则
