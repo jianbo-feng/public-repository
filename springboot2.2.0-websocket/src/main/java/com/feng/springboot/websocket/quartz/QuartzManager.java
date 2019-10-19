@@ -70,7 +70,7 @@ public class QuartzManager {
             }
 
             Trigger trigger = null;
-            ScheduleBuilder scheduleBuilder = null;
+            ScheduleBuilder<?> scheduleBuilder = null;
             if (repeatCount == null) {
                 scheduleBuilder = CronScheduleBuilder.cronSchedule(task.getTaskCronExpression());
             }
