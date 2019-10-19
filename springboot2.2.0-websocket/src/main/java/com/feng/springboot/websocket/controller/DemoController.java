@@ -28,6 +28,12 @@ public class DemoController {
         return "test";
     }
 
+    /**
+     * WebSocket前端访问路径
+     * @param name 用户名，默认：test
+     * @param model 存储数据发送到前端
+     * @return
+     */
     @RequestMapping("web")
     public String web(@RequestParam(defaultValue = "test") String name, Model model) {
         model.addAttribute("name", name);
@@ -36,6 +42,16 @@ public class DemoController {
         httpSession.setAttribute(Constants.SESSION_USERNAME, name);
         model.addAttribute("JSESSIONID", httpSession.getId());
         return "web";
+    }
+
+    /**
+     * 定时任务设计
+     * @return
+     * @see <a href="http://cron.qqe2.com/">参考</a>
+     */
+    @RequestMapping(value = {"cron", "/cron", "/cron/index", "/cron/"})
+    public String cron() {
+        return "/cron/index";
     }
 }
 
