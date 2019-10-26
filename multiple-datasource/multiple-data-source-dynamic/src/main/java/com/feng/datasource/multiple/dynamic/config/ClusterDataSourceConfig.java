@@ -6,6 +6,7 @@ import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
@@ -23,6 +24,14 @@ import javax.sql.DataSource;
 @Configuration
 @MapperScan(basePackages = "com.feng.datasource.multiple.dynamic.repository.cluster", sqlSessionTemplateRef = "clusterSqlSessionTemplate")
 public class ClusterDataSourceConfig {
+
+	@Value("${mybatis.cluster.mapper-locations}")
+	private String mapperLocations;
+
+	@Value("${mybatis.cluster.type-aliases-package}")
+	private String typeAliasesPackage;
+
+
 
 	/**
 	 * 创建数据源
@@ -44,9 +53,12 @@ public class ClusterDataSourceConfig {
 	public SqlSessionFactory productSqlSessionFactory(@Qualifier("clusterDataSource") DataSource dataSource) throws Exception {
 		SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
 		bean.setDataSource(dataSource);
-		bean.setTypeAliasesPackage("com.feng.datasource.multiple.dynamic.entity");
-		bean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:mapper/cluster/*.xml"));
+//		bean.setTypeAliasesPackage("com.feng.datasource.multiple.dynamic.entity");
+		bean.setTypeAliasesPackage(typeAliasesPackage);
+//		bean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:mapper/cluster/*.xml"));
+		bean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources(mapperLocations));
 		return bean.getObject();
+
 	}
 
 	/**

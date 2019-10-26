@@ -1,9 +1,6 @@
 server:
   port: 9999
 spring:
-#  jpa:
-#    hibernate:
-#      ddl-auto: update
   application:
     name: multiple-data-source-dynamic
   datasource:
@@ -48,6 +45,19 @@ spring:
   output:
     ansi:
       enabled: always # 彩色日志设置
+mybatis:
+  master:
+    mapper-locations: classpath:mapper/master/*.xml
+    type-aliases-package: com.feng.datasource.multiple.dynamic.entity
+    configuration: # mybatis全局配置
+      cache-enabled: true
+      local-cache-scope: session
+  cluster:
+    mapper-locations: classpath:mapper/cluster/*.xml
+    type-aliases-package: com.feng.datasource.multiple.dynamic.entity
+    configuration: # mybatis全局配置
+      cache-enabled: true
+      local-cache-scope: session
 
 logging:
   level:
