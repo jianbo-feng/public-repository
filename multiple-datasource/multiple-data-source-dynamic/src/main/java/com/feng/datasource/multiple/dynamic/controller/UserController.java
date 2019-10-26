@@ -1,6 +1,7 @@
 package com.feng.datasource.multiple.dynamic.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.feng.datasource.multiple.dynamic.aspect.LogRecord;
 import com.feng.datasource.multiple.dynamic.entity.Product;
 import com.feng.datasource.multiple.dynamic.entity.User;
 import com.feng.datasource.multiple.dynamic.repository.cluster.ClusterUserMapper;
@@ -40,6 +41,7 @@ public class UserController {
 	@Autowired
 	private ProductService productService;
 
+	@LogRecord(action = "测试查询所有信息")
 	@GetMapping("/all")
 	public Map<String, Object> all() {
 		Map<String, Object> data = new HashMap<>();
