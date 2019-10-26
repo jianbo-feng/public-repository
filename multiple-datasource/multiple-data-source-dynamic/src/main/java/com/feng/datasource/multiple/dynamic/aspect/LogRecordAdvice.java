@@ -22,12 +22,13 @@ public class LogRecordAdvice {
         System.out.println("前置增强");
     }
 
-    @AfterReturning(returning = "obj",pointcut="@annotation(logRecord)")
-    public void after(JoinPoint point,Object obj,LogRecord logRecord){
+    @AfterReturning(returning = "obj", pointcut="@annotation(logRecord)")
+    public void after(JoinPoint point, Object obj, LogRecord logRecord){
         // obj 为接口的返回值（用于记录操作对象）, logRecord 为接口上打得注解
         System.out.println("后置增强");
         String record = logRecord.action();
         System.err.println("LogRecordAdvice.after()=> obj ：" + JSON.toJSONString(obj));
+        System.err.println("LogRecordAdvice.after()=> point ：" + JSON.toJSONString(point.getArgs()));
         log.info(record);
     }
 
