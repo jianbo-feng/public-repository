@@ -47,6 +47,7 @@ public class MasterDataSourceConfig {
 	public SqlSessionFactory masterSqlSessionFactory(@Qualifier("masterDataSource") DataSource dataSource) throws Exception {
 		SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
 		bean.setDataSource(dataSource);
+		bean.setTypeAliasesPackage("com.feng.datasource.multiple.dynamic.entity");
 		bean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:mapper/master/*.xml"));
 		return bean.getObject();
 	}

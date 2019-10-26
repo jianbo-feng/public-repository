@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.feng.datasource.multiple.dynamic.repository.cluster.ProductRepository" >
+
   <!-- 结果映射 -->
   <resultMap id="product" type="com.feng.datasource.multiple.dynamic.entity.Product">
     <result column="id" property="id" jdbcType="INTEGER"/>
@@ -12,7 +13,7 @@
   <!-- 表所有字段 -->
   <sql id="allColumns">
         id, code, `name`, price
-    </sql>
+  </sql>
 
   <!-- 查询所有数据 -->
   <select id="findAll" resultMap="product">
@@ -22,7 +23,10 @@
   </select>
 
   <!--查询-->
-  <select id="find" parameterType="java.util.Map" resultMap="product">
+  <!-- 如果不配置typeAliasesPackage，parameterType只能为全路径的Java类或Map -->
+  <!--<select id="find" parameterType="java.util.Map" resultMap="product">
+  <select id="find" parameterType="com.feng.datasource.multiple.dynamic.entity.Product" resultMap="product">-->
+  <select id="find" parameterType="product" resultMap="product">
     SELECT <include refid="allColumns" />
     FROM t_product
     <trim prefix="WHERE" prefixOverrides="AND | OR">

@@ -44,6 +44,7 @@ public class ClusterDataSourceConfig {
 	public SqlSessionFactory productSqlSessionFactory(@Qualifier("clusterDataSource") DataSource dataSource) throws Exception {
 		SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
 		bean.setDataSource(dataSource);
+		bean.setTypeAliasesPackage("com.feng.datasource.multiple.dynamic.entity");
 		bean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:mapper/cluster/*.xml"));
 		return bean.getObject();
 	}

@@ -14,3 +14,10 @@ spring:
       driver-class-name: com.mysql.cj.jdbc.Driver
       username: root
       password: jianbo@feng.0825
+logging:
+  level:
+    com:
+      feng:
+        datasource:
+          multiple:
+            mybatis: debug

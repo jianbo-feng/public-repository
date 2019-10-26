@@ -22,7 +22,7 @@
   </select>
 
   <!--查询-->
-  <select id="find" parameterType="java.util.Map" resultMap="customer">
+  <select id="find" parameterType="customer" resultMap="customer">
     SELECT id,email,first_name,last_name
     FROM t_customer
     <trim prefix="WHERE" prefixOverrides="AND | OR">

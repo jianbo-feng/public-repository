@@ -55,5 +55,4 @@ logging:
       feng:
         datasource:
           multiple:
-            dynamic:
-              repository: debug
+            dynamic: debug
