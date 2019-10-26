@@ -1,9 +1,13 @@
 package com.feng.datasource.multiple.dynamic.controller;
 
+import com.alibaba.fastjson.JSON;
+import com.feng.datasource.multiple.dynamic.entity.Product;
 import com.feng.datasource.multiple.dynamic.entity.User;
 import com.feng.datasource.multiple.dynamic.repository.cluster.ClusterUserMapper;
 import com.feng.datasource.multiple.dynamic.repository.master.MasterUserMapper;
+import com.feng.datasource.multiple.dynamic.service.CustomerService;
 import com.feng.datasource.multiple.dynamic.service.MyService;
+import com.feng.datasource.multiple.dynamic.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,9 +34,25 @@ public class UserController {
 	@Autowired
 	private MyService myService;
 
+	@Autowired
+	private CustomerService customerService;
+
+	@Autowired
+	private ProductService productService;
+
 	@GetMapping("/all")
 	public Map<String, Object> all() {
-		return myService.all();
+		Map<String, Object> data = new HashMap<>();
+		data.putAll(myService.all());
+		data.put("call", customerService.getAll());
+		data.put("pall", productService.getAll());
+
+		Integer id = 1;
+		Product product = new Product();
+		product.setId(id);
+		List<Product> products = productService.find(product);
+		System.err.println(JSON.toJSONString(products));
+		return data;
 	}
 
 	/************************主库控制层接口-start******************************/

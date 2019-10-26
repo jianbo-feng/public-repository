@@ -1,17 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.feng.datasource.multiple.dynamic.repository.product.ProductRepository" >
-
-  <resultMap id="BaseResultMap" type="com.feng.datasource.multiple.dynamic.entity.Product">
+<mapper namespace="com.feng.datasource.multiple.dynamic.repository.cluster.ProductRepository" >
+  <!-- 结果映射 -->
+  <resultMap id="product" type="com.feng.datasource.multiple.dynamic.entity.Product">
     <result column="id" property="id" jdbcType="INTEGER"/>
     <result column="code" property="code" jdbcType="VARCHAR"/>
     <result column="name" property="name" jdbcType="VARCHAR"/>
     <result column="price" property="price" jdbcType="DOUBLE"/>
   </resultMap>
 
+  <!-- 表所有字段 -->
+  <sql id="allColumns">
+        id, code, `name`, price
+    </sql>
+
+  <!-- 查询所有数据 -->
+  <select id="findAll" resultMap="product">
+    SELECT
+    <include refid="allColumns" />
+    FROM t_product
+  </select>
+
   <!--查询-->
-  <select id="find" parameterType="BaseResultMap" resultMap="BaseResultMap">
-    SELECT id,code,`name`,price
+  <select id="find" parameterType="java.util.Map" resultMap="product">
+    SELECT <include refid="allColumns" />
     FROM t_product
     <trim prefix="WHERE" prefixOverrides="AND | OR">
       <if test="id != null">
@@ -28,4 +40,5 @@
       </if>
     </trim>
   </select>
+
 </mapper>

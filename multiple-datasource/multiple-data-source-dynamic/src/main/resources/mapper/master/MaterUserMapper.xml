@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.feng.datasource.multiple.mybatis.repository.master.MasterUserMapper" >
+<mapper namespace="com.feng.datasource.multiple.dynamic.repository.master.MasterUserMapper" >
     <!-- 结果映射 -->
 	<resultMap id="BaseMap" type="com.feng.datasource.multiple.dynamic.entity.User">
 	    <id column="userId" property="userId" jdbcType="INTEGER" />

@@ -49,3 +49,11 @@ spring:
     ansi:
       enabled: always # 彩色日志设置
 
+logging:
+  level:
+    com:
+      feng:
+        datasource:
+          multiple:
+            dynamic:
+              repository: debug
