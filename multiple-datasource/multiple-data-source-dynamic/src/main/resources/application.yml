@@ -1,0 +1,51 @@
+server:
+  port: 9999
+spring:
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+  application:
+    name: multiple-data-source-dynamic
+  datasource:
+    master:
+      name: mysql-db1
+      type: com.zaxxer.hikari.HikariDataSource
+      jdbc-url: jdbc:mysql://127.0.0.1:3306/test1?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true
+      username: root
+      password: jianbo@feng.0825
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      hikari:
+        minimum-idle: 10
+        maximum-pool-size: 60
+        auto-commit: true
+        idle-timeout: 60000
+        pool-name: InsectControlHikariCP
+        max-lifetime: 60000
+        connection-timeout: 60000
+        connection-test-query: SELECT 1
+        validation-timeout: 3000
+        login-timeout: 5
+        read-only: false
+    cluster:
+      name: mysql-db2
+      type: com.zaxxer.hikari.HikariDataSource
+      jdbc-url: jdbc:mysql://127.0.0.1:3306/test2?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true
+      username: root
+      password: jianbo@feng.0825
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      hikari:
+        minimum-idle: 10
+        maximum-pool-size: 60
+        auto-commit: true
+        idle-timeout: 60000
+        pool-name: InsectControlHikariCP
+        max-lifetime: 60000
+        connection-timeout: 60000
+        connection-test-query: SELECT 1
+        validation-timeout: 3000
+        login-timeout: 5
+        read-only: false
+  output:
+    ansi:
+      enabled: always # 彩色日志设置
+
