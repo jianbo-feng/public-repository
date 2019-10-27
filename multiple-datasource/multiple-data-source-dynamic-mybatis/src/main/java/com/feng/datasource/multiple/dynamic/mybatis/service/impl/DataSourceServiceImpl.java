@@ -1,5 +1,6 @@
 package com.feng.datasource.multiple.dynamic.mybatis.service.impl;
 
+import com.feng.datasource.multiple.dynamic.mybatis.config.DynamicDataSourceContextHolder;
 import com.feng.datasource.multiple.dynamic.mybatis.config.DynamicRoutingDataSource;
 import com.feng.datasource.multiple.dynamic.mybatis.exception.MyException;
 import com.feng.datasource.multiple.dynamic.mybatis.register.DynamicDataSourceRegister;
@@ -38,7 +39,10 @@ public class DataSourceServiceImpl implements DataSourceService {
                 Map<Object, Object> dataSources = new HashMap<>(DynamicDataSourceRegister.customDataSources);
                 dataSources.put(dsName, ds);
                 dynamicRoutingDataSource.updateTargetDataSource(null, dataSources);
+                // 存储到本地缓存
                 DynamicDataSourceRegister.customDataSources.put(dsName, ds);
+                // 数据源上下文，用于管理数据源与记录已经注册的数据源key
+                DynamicDataSourceContextHolder.dataSourceIds.add(dsName);
 
                 // 添加数据库之后可以写入配置文件中，下一次启动的时候会自动读取
 
