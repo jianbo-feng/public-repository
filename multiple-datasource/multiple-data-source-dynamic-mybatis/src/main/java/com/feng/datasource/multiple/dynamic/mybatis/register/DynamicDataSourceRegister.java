@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.MutablePropertyValues;
 import org.springframework.beans.PropertyValues;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.beans.factory.support.GenericBeanDefinition;
 import org.springframework.boot.context.properties.bind.Bindable;
@@ -41,6 +42,10 @@ public class DynamicDataSourceRegister implements ImportBeanDefinitionRegistrar,
      */
     private Environment evn;
 
+
+    @Value("${spring.datasource.default}")
+    private String defaultDataSourceName;
+
     /**
      * 别名
      */
@@ -57,7 +62,7 @@ public class DynamicDataSourceRegister implements ImportBeanDefinitionRegistrar,
     /**
      * 存储我们注册的数据源
      */
-    private Map<String, DataSource> customDataSources = new HashMap<String, DataSource>();
+    public static Map<String, DataSource> customDataSources = new HashMap<>();
 
     /**
      * 参数绑定工具 springboot2.0新推出
@@ -120,7 +125,7 @@ public class DynamicDataSourceRegister implements ImportBeanDefinitionRegistrar,
      * @param typeStr
      * @return
      */
-    private Class<? extends DataSource> getDataSourceType(String typeStr) {
+    public Class<? extends DataSource> getDataSourceType(String typeStr) {
         Class<? extends DataSource> type;
         try {
             if (StringUtils.hasLength(typeStr)) {
@@ -143,14 +148,14 @@ public class DynamicDataSourceRegister implements ImportBeanDefinitionRegistrar,
      * @param result
      * @param properties
      */
-    private void bind(DataSource result, Map properties) {
+    public void bind(DataSource result, Map properties) {
         ConfigurationPropertySource source = new MapConfigurationPropertySource(properties);
         Binder binder = new Binder(new ConfigurationPropertySource[]{source.withAliases(aliases)});
         // 将参数绑定到对象
         binder.bind(ConfigurationPropertyName.EMPTY, Bindable.ofInstance(result));
     }
 
-    private <T extends DataSource> T bind(Class<T> clazz, Map properties) {
+    public <T extends DataSource> T bind(Class<T> clazz, Map properties) {
         ConfigurationPropertySource source = new MapConfigurationPropertySource(properties);
         Binder binder = new Binder(new ConfigurationPropertySource[]{source.withAliases(aliases)});
         // 通过类型绑定参数并获得实例对象

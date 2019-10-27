@@ -2,6 +2,7 @@ server:
   port: 8989
 spring:
   datasource:
+    default: master
     master:
       password: jianbo@feng.0825
       url: jdbc:mysql://127.0.0.1:3306/test?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true
