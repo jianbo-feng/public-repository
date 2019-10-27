@@ -1,0 +1,29 @@
+@TargetDataSource(name="ds1")
+
+	@Override
+
+	public List<Demo> queryList(){
+
+		Map<String,Object> map = new HashMap<>();
+
+		return demoDao.queryList(map);
+
+	}
+
+    @TargetDataSource(name="ds2")
+
+    @Override
+
+    public List<Demo> selectList(){
+
+        Map<String,Object> map = new HashMap<>();
+
+        return demoDao.queryList(map);
+
+    }
+
+说明：@TargetDataSource(name="ds2")只能添加在接口实现类上，而不能添加在接口上，推荐添加在service层的impl实现类上。
+
+如果你的工程使用的mapper接口@Mapper
+
+public interface DemoDao extends BaseMapper<Demo>  则不能在此处使用@TargetDataSource，如果想要在持久层使用，必须有实现类。强烈推荐在service使用。
