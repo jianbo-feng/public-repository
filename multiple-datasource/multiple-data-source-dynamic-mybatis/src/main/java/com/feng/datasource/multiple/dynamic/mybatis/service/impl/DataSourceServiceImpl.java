@@ -18,6 +18,7 @@ public class DataSourceServiceImpl implements DataSourceService {
 
     private static final String DATASOURCE_TYPE_DEFAULT = "com.zaxxer.hikari.HikariDataSource";
 
+    // 这里出现警告没关系，在DynamicDataSourceRegister里面已经初始化
     @Autowired
     @Lazy
     private DynamicRoutingDataSource dynamicRoutingDataSource;
