@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: springboot-elasticsearch
+  data:
+    elasticsearch:
+      repositories:
+        enabled: true
+      cluster-name: elasticsearch
+      cluster-nodes: 127.0.0.1:9300
+server:
+  port: 9996
+
+#elasticsearch:
+#  cluster-name: elasticsearch
+#  host: 127.0.0.1
+#  port: 9300
+#  pool: 5

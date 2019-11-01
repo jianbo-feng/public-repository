@@ -1,6 +1,6 @@
 /target/
 !.mvn/wrapper/maven-wrapper.jar
-**.DS_Store
+*/.DS_Store
 
 ### STS ###
 .apt_generated
@@ -46,3 +46,33 @@
 /**/.nb-gradle/
 *.log
 springboot2.2.0-websocket/src/main/resources/.DS_Store
+multiple-datasource/multiple-data-source-dynamic/src/main/resources/mapper/.DS_Store
+multiple-datasource/multiple-data-source-dynamic/src/main/resources/.DS_Store
+multiple-datasource/multiple-data-source-dynamic/src/main/java/com/feng/datasource/multiple/dynamic/service/.DS_Store
+multiple-datasource/multiple-data-source-dynamic/src/main/java/com/feng/datasource/multiple/dynamic/repository/.DS_Store
+multiple-datasource/multiple-data-source-dynamic/src/main/java/com/feng/datasource/multiple/dynamic/entity/.DS_Store
+multiple-datasource/multiple-data-source-dynamic/src/main/java/com/feng/datasource/multiple/dynamic/controller/.DS_Store
+multiple-datasource/multiple-data-source-dynamic/src/main/java/com/feng/datasource/multiple/dynamic/config/.DS_Store
+multiple-datasource/multiple-data-source-dynamic/src/main/java/com/feng/datasource/multiple/dynamic/aspect/.DS_Store
+multiple-datasource/multiple-data-source-dynamic/src/main/java/com/feng/datasource/multiple/dynamic/.DS_Store
+multiple-datasource/multiple-data-source-dynamic/src/main/java/com/feng/datasource/multiple/.DS_Store
+multiple-datasource/multiple-data-source-dynamic/src/main/java/com/feng/datasource/.DS_Store
+multiple-datasource/multiple-data-source-dynamic/src/main/java/com/feng/.DS_Store
+multiple-datasource/multiple-data-source-dynamic/src/main/java/com/.DS_Store
+multiple-datasource/multiple-data-source-dynamic/src/main/java/.DS_Store
+multiple-datasource/multiple-data-source-dynamic/src/main/.DS_Store
+i18n/src/test/java/com/feng/.DS_Store
+i18n/src/test/java/com/.DS_Store
+i18n/src/test/java/.DS_Store
+i18n/src/test/.DS_Store
+i18n/src/main/.DS_Store
+hadoop-hive/src/main/java/com/feng/hadoop/hive/.DS_Store
+hadoop-hive/src/main/java/com/feng/hadoop/.DS_Store
+hadoop-hive/src/main/java/com/feng/.DS_Store
+hadoop-hive/src/main/java/com/.DS_Store
+hadoop-hive/src/main/java/.DS_Store
+hadoop-hive/src/main/.DS_Store
+crate-demo/src/main/java/com/feng/.DS_Store
+crate-demo/src/main/java/com/.DS_Store
+crate-demo/src/main/java/.DS_Store
+crate-demo/src/main/.DS_Store
