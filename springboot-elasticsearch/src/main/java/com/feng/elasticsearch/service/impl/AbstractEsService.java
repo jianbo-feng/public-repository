@@ -1,7 +1,6 @@
 package com.feng.elasticsearch.service.impl;
 
 import com.feng.elasticsearch.common.StringUtil;
-import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.index.query.*;
 import org.elasticsearch.index.query.functionscore.FunctionScoreQueryBuilder;
 import org.elasticsearch.index.query.functionscore.ScoreFunctionBuilders;
