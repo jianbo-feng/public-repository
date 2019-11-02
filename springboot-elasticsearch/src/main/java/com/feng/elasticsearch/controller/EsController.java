@@ -82,51 +82,60 @@ public class EsController {
         doc.setContent("第二十三遍文档");
         doc.setType("smart");
         doc.setRoleId("user2");
-        docService.save(doc);
+//        docService.save(doc);
+//
+//        doc = new TestDoc();
+//        doc.setId(UUID.randomUUID().toString());
+//        doc.setDate(new Date());
+//        doc.setName("doc-3");
+//        doc.setContent("第三遍文档");
+//        doc.setType("smart");
+//        doc.setRoleId("admin");
+//        docService.save(doc);
+//
+//        doc = new TestDoc();
+//        doc.setId(UUID.randomUUID().toString());
+//        doc.setDate(new Date());
+//        doc.setName("doc-1");
+//        doc.setContent("第一遍文档");
+//        doc.setType("article");
+//        doc.setRoleId("user");
+//        docService.save(doc);
+//
+//        doc = new TestDoc();
+//        doc.setId(UUID.randomUUID().toString());
+//        doc.setDate(new Date());
+//        doc.setName("doc-2");
+//        doc.setContent("第二遍文档");
+//        doc.setType("article");
+//        doc.setRoleId("user");
+//        docService.save(doc);
+//
+//        doc = new TestDoc();
+//        doc.setId(UUID.randomUUID().toString());
+//        doc.setDate(new Date());
+//        doc.setName("doc-4");
+//        doc.setContent("第四遍文档");
+//        doc.setType("smart");
+//        doc.setRoleId("user");
+//        docService.save(doc);
+//
+//        doc = new TestDoc();
+//        doc.setId(UUID.randomUUID().toString());
+//        doc.setDate(new Date());
+//        doc.setName("doc-14");
+//        doc.setContent("第十四遍文档");
+//        doc.setType("smart");
+//        doc.setRoleId("user");
+//        docService.save(doc);
 
         doc = new TestDoc();
         doc.setId(UUID.randomUUID().toString());
         doc.setDate(new Date());
-        doc.setName("doc-3");
-        doc.setContent("第三遍文档");
+        doc.setName("ABdoc-53");
+        doc.setContent("This is AbcD第五十三遍文档");
         doc.setType("smart");
-        doc.setRoleId("admin");
-        docService.save(doc);
-
-        doc = new TestDoc();
-        doc.setId(UUID.randomUUID().toString());
-        doc.setDate(new Date());
-        doc.setName("doc-1");
-        doc.setContent("第一遍文档");
-        doc.setType("article");
-        doc.setRoleId("user");
-        docService.save(doc);
-
-        doc = new TestDoc();
-        doc.setId(UUID.randomUUID().toString());
-        doc.setDate(new Date());
-        doc.setName("doc-2");
-        doc.setContent("第二遍文档");
-        doc.setType("article");
-        doc.setRoleId("user");
-        docService.save(doc);
-
-        doc = new TestDoc();
-        doc.setId(UUID.randomUUID().toString());
-        doc.setDate(new Date());
-        doc.setName("doc-4");
-        doc.setContent("第四遍文档");
-        doc.setType("smart");
-        doc.setRoleId("user");
-        docService.save(doc);
-
-        doc = new TestDoc();
-        doc.setId(UUID.randomUUID().toString());
-        doc.setDate(new Date());
-        doc.setName("doc-14");
-        doc.setContent("第十四遍文档");
-        doc.setType("smart");
-        doc.setRoleId("user");
+        doc.setRoleId("user2");
         docService.save(doc);
         return vo;
     }

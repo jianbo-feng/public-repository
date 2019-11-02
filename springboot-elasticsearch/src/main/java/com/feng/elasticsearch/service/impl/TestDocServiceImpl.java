@@ -5,10 +5,15 @@ import com.feng.elasticsearch.common.StringUtil;
 import com.feng.elasticsearch.entity.TestDoc;
 import com.feng.elasticsearch.respository.TestDocRepository;
 import com.feng.elasticsearch.service.TestDocService;
+import org.apache.lucene.index.Terms;
 import org.elasticsearch.index.query.BoolQueryBuilder;
 import org.elasticsearch.index.query.QueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
+import org.elasticsearch.search.aggregations.AggregationBuilders;
+import org.elasticsearch.search.aggregations.bucket.terms.TermsAggregationBuilder;
 import org.elasticsearch.search.fetch.subphase.highlight.HighlightBuilder;
+import org.elasticsearch.search.sort.SortBuilders;
+import org.elasticsearch.search.sort.SortOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -22,6 +27,7 @@ import java.util.List;
 
 import static com.feng.elasticsearch.common.DateUtil.FORMAT_DATE_TIME;
 import static org.elasticsearch.index.query.QueryBuilders.*;
+import static org.elasticsearch.search.aggregations.AggregationBuilders.terms;
 
 @Service
 public class TestDocServiceImpl extends AbstractEsService implements TestDocService {
@@ -54,9 +60,19 @@ public class TestDocServiceImpl extends AbstractEsService implements TestDocServ
                 .filter(termQuery("type", type))
                 .filter(rangeQuery("date").from(startDate.getTime()).to(endDate.getTime()))
                 .filter(termsQuery("roleId", "admin", "user2"));
-        key = StringUtil.trim(key);
+        key = StringUtil.trim(key).toLowerCase();
         if (!"".equals(key)) {
-            totalFilter.must(multiMatchQuery(key, "name", "content"));
+            /**
+             * 使用multiMatchQuery检索会出现数据不完整的情况；
+             * 使用boolQuery里面加2个通配查询的方式又不能体现分词检索
+             * 所以采用boolQuery里面加 两个should（即'OR'）查询方式，即要么满足multiMatchQuery要么满足 boolQuery里面加2个通配查询 方式
+             */
+            totalFilter.must(boolQuery()//.minimumShouldMatch(1)
+                    .should(multiMatchQuery(key, "name", "content"))
+                    .should(boolQuery()
+                            .should(wildcardQuery("name", "*" + key + "*"))
+                            .should(wildcardQuery("content", "" + key + "*")))
+            );
         }
 
         /**
@@ -74,10 +90,11 @@ public class TestDocServiceImpl extends AbstractEsService implements TestDocServ
 
         nativeSearchQueryBuilder.withQuery(totalFilter)
                 .withHighlightFields(new HighlightBuilder.Field("name"))
-                .withHighlightFields(new HighlightBuilder.Field("content"));
-
+                .withHighlightFields(new HighlightBuilder.Field("content"))
+                .withSort(SortBuilders.fieldSort("roleId").order(SortOrder.ASC));
 //        nativeSearchQueryBuilder.withQuery(QueryBuilders.termsQuery("roleId", "admin", "user2"));
 //        nativeSearchQueryBuilder.withQuery(QueryBuilders.multiMatchQuery(key, "name", "content"));
+
         SearchQuery searchQuery = nativeSearchQueryBuilder.withPageable(pageable).build();
 
         Page<TestDoc> page = testDocRepository.search(searchQuery);

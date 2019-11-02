@@ -1,6 +1,7 @@
 package com.feng.elasticsearch.service.impl;
 
 import com.feng.elasticsearch.common.StringUtil;
+import org.elasticsearch.common.unit.Fuzziness;
 import org.elasticsearch.index.query.*;
 import org.elasticsearch.index.query.functionscore.FunctionScoreQueryBuilder;
 import org.elasticsearch.index.query.functionscore.ScoreFunctionBuilders;
@@ -147,7 +148,7 @@ public abstract class AbstractEsService {
     }
 
     /**
-     * 模糊匹配
+     * 模糊匹配(字符串的相似度)
      * @param pageable
      * @param fieldName
      * @param key
@@ -158,7 +159,7 @@ public abstract class AbstractEsService {
         fieldName = StringUtil.trim(fieldName);
         if(key != null) {
             NativeSearchQueryBuilder nativeSearchQueryBuilder = new NativeSearchQueryBuilder();
-            nativeSearchQueryBuilder.withQuery(fuzzyQuery(fieldName, key));
+            nativeSearchQueryBuilder.withQuery(fuzzyQuery(fieldName, key).fuzziness(Fuzziness.AUTO));
             searchQuery = nativeSearchQueryBuilder.withPageable(pageable).build();
         }
         else {
