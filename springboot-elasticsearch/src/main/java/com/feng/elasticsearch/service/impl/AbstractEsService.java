@@ -1,6 +1,7 @@
 package com.feng.elasticsearch.service.impl;
 
 import com.feng.elasticsearch.common.StringUtil;
+import org.elasticsearch.index.query.BoolQueryBuilder;
 import org.elasticsearch.index.query.QueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.springframework.data.domain.Pageable;
@@ -8,6 +9,7 @@ import org.springframework.data.elasticsearch.core.query.NativeSearchQueryBuilde
 import org.springframework.data.elasticsearch.core.query.SearchQuery;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 
 import static org.elasticsearch.index.query.QueryBuilders.*;
@@ -253,4 +255,39 @@ public abstract class AbstractEsService {
         }
         return searchQuery;
     }
+
+    /**
+     * 功能描述:多条件查询之bool query
+     * @param indexs 索引数组
+     * @param types 类型数组
+     * @param musts 必须查询
+     * @param mustNots 不能查询
+     * @param shoulds 应查询(OR)
+     * @param filters 拦截条件
+     * @return
+     * @see https://blog.csdn.net/zhouzhiwengang/article/details/97392088
+     */
+    public SearchQuery searchBooleanQuery(Pageable pageable, String[] indexs, String[] types, List<QueryBuilder> musts,
+                                          List<QueryBuilder> mustNots, List<QueryBuilder> shoulds,
+                                          List<QueryBuilder> filters) {
+        BoolQueryBuilder boolQuery =  QueryBuilders.boolQuery();
+        musts.stream().forEach(item->{
+            boolQuery.must(item);
+        });
+        mustNots.stream().forEach(item->{
+            boolQuery.mustNot(item);
+        });
+        shoulds.stream().forEach(item ->{
+            boolQuery.should(item);
+        });
+        filters.stream().forEach(item->{
+            boolQuery.filter(item);
+        });
+        NativeSearchQueryBuilder nativeSearchQueryBuilder = new NativeSearchQueryBuilder();
+        nativeSearchQueryBuilder.withIndices(indexs).withTypes(types).withQuery(boolQuery);
+        SearchQuery searchQuery = nativeSearchQueryBuilder.withPageable(pageable).build();
+        return searchQuery;
+    }
+
+
 }
