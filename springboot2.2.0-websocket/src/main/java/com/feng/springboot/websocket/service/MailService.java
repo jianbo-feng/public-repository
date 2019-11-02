@@ -171,7 +171,7 @@ public class MailService {
             MimeMessage mimeMessage = mailSender.createMimeMessage();
             MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true);
             helper.setFrom("445121408@qq.com");
-            helper.setTo("405727062@qq.com");
+            helper.setTo(new String[]{"445121408@qq.com", "405727062@qq.com"});
             helper.setSubject("主题：模板邮件");
             Map<String, Object> model = new HashMap<String, Object>();
             model.put("time", new Date());
