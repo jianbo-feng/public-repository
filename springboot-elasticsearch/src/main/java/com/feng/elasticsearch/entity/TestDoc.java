@@ -1,28 +1,36 @@
 package com.feng.elasticsearch.entity;
 
-import org.springframework.data.elasticsearch.annotations.Document;
-import org.springframework.data.elasticsearch.annotations.Field;
-import org.springframework.data.elasticsearch.annotations.FieldType;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.elasticsearch.annotations.*;
 
 import java.io.Serializable;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import static org.springframework.data.elasticsearch.annotations.DateFormat.basic_date_time_no_millis;
-
+//@Mapping(mappingPath = "elasticsearch_mapping.json")//设置mapping
+//@Setting(settingPath = "elasticsearch_setting.json")//设置setting
 @Document(indexName = "docs", type = "test-doc")
 public class TestDoc implements Serializable {
 
+    @Id
     private String id;
 
+//    @Field(type = FieldType.Text, store = true, analyzer = "ik_smart", searchAnalyzer = "ik_max_word")
+    @Field(type = FieldType.Text, store = true)
     private String name;
 
+//    @Field(type = FieldType.Text, store = true, analyzer = "ik_smart", searchAnalyzer = "ik_max_word")
+    @Field(type = FieldType.Text, store = true)
     private String content;
 
+    @Field(type = FieldType.Keyword)
     private String type;
 
+    @Field(type = FieldType.Keyword)
     private String roleId;
 
+    /**
+     * 需要在elasticsearch/plugins/下添加组件elasticsearch-analysis-ik（还可以添加elasticsearch-analysis-pinyin、elasticsearch-analysis-stconvert）组件
+     */
     @Field(type = FieldType.Date)
     private Date date;
 

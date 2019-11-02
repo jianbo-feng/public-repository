@@ -78,6 +78,15 @@ public class EsController {
         TestDoc doc = new TestDoc();
         doc.setId(UUID.randomUUID().toString());
         doc.setDate(new Date());
+        doc.setName("doc-23");
+        doc.setContent("第二十三遍文档");
+        doc.setType("smart");
+        doc.setRoleId("user2");
+        docService.save(doc);
+
+        doc = new TestDoc();
+        doc.setId(UUID.randomUUID().toString());
+        doc.setDate(new Date());
         doc.setName("doc-3");
         doc.setContent("第三遍文档");
         doc.setType("smart");
