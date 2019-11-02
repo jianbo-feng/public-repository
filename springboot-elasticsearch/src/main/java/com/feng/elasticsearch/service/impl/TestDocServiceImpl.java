@@ -57,9 +57,9 @@ public class TestDocServiceImpl extends AbstractEsService implements TestDocServ
         startDate = DateUtil.str2Date("2019-10-02 12:46:45", FORMAT_DATE_TIME);
         Date endDate = new Date();
         BoolQueryBuilder totalFilter = QueryBuilders.boolQuery()
-                .filter(termQuery("type", type))
-                .filter(rangeQuery("date").from(startDate.getTime()).to(endDate.getTime()))
-                .filter(termsQuery("roleId", "admin", "user2"));
+                .filter(termQuery("type", type))        // 必须匹配类型
+                .filter(rangeQuery("date").from(startDate.getTime()).to(endDate.getTime())) // 必须匹配时间范围
+                .filter(termsQuery("roleId", "admin", "user2"));        // 必须满足roleId in ('admin', 'user2')
         key = StringUtil.trim(key).toLowerCase();
         if (!"".equals(key)) {
             /**
@@ -68,8 +68,8 @@ public class TestDocServiceImpl extends AbstractEsService implements TestDocServ
              * 所以采用boolQuery里面加 两个should（即'OR'）查询方式，即要么满足multiMatchQuery要么满足 boolQuery里面加2个通配查询 方式
              */
             totalFilter.must(boolQuery()//.minimumShouldMatch(1)
-                    .should(multiMatchQuery(key, "name", "content"))
-                    .should(boolQuery()
+                    .should(multiMatchQuery(key, "name", "content"))    // 多字段分词检索
+                    .should(boolQuery()                                             // 通配查询
                             .should(wildcardQuery("name", "*" + key + "*"))
                             .should(wildcardQuery("content", "" + key + "*")))
             );
