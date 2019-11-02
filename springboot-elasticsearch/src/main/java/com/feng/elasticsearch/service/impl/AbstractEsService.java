@@ -1,9 +1,10 @@
 package com.feng.elasticsearch.service.impl;
 
 import com.feng.elasticsearch.common.StringUtil;
-import org.elasticsearch.index.query.BoolQueryBuilder;
-import org.elasticsearch.index.query.QueryBuilder;
-import org.elasticsearch.index.query.QueryBuilders;
+import org.elasticsearch.action.search.SearchResponse;
+import org.elasticsearch.index.query.*;
+import org.elasticsearch.index.query.functionscore.FunctionScoreQueryBuilder;
+import org.elasticsearch.index.query.functionscore.ScoreFunctionBuilders;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.elasticsearch.core.query.NativeSearchQueryBuilder;
 import org.springframework.data.elasticsearch.core.query.SearchQuery;
@@ -11,6 +12,7 @@ import org.springframework.data.elasticsearch.core.query.SearchQuery;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ExecutionException;
 
 import static org.elasticsearch.index.query.QueryBuilders.*;
 
@@ -258,6 +260,7 @@ public abstract class AbstractEsService {
 
     /**
      * 功能描述:多条件查询之bool query
+     * @param pageable 分页信息
      * @param indexs 索引数组
      * @param types 类型数组
      * @param musts 必须查询
@@ -265,7 +268,7 @@ public abstract class AbstractEsService {
      * @param shoulds 应查询(OR)
      * @param filters 拦截条件
      * @return
-     * @see https://blog.csdn.net/zhouzhiwengang/article/details/97392088
+     * @see <a href="https://blog.csdn.net/zhouzhiwengang/article/details/97392088">参考</a>
      */
     public SearchQuery searchBooleanQuery(Pageable pageable, String[] indexs, String[] types, List<QueryBuilder> musts,
                                           List<QueryBuilder> mustNots, List<QueryBuilder> shoulds,
@@ -290,4 +293,97 @@ public abstract class AbstractEsService {
     }
 
 
+    /**
+     * 功能描述:多条件检索之constant score query
+     * @param pageable 分页信息
+     * @param indexs 索引数组
+     * @param types  类型数组
+     * @param name   文档属性名称
+     * @param value  文档属性值
+     * @param boost  权重值
+     * @return
+     * @throws InterruptedException
+     * @throws ExecutionException
+     */
+    public SearchQuery searchConstantScoreQuery(Pageable pageable, String[] indexs, String[] types,
+                                                String name, Object value, float boost) {
+        TermQueryBuilder termQuery = QueryBuilders.termQuery(name, value);
+        ConstantScoreQueryBuilder constantScoreQuery = QueryBuilders.constantScoreQuery(termQuery).boost(boost);
+        NativeSearchQueryBuilder nativeSearchQueryBuilder = new NativeSearchQueryBuilder();
+        nativeSearchQueryBuilder.withIndices(indexs).withTypes(types).withQuery(constantScoreQuery);
+        SearchQuery searchQuery = nativeSearchQueryBuilder.withPageable(pageable).build();
+        return searchQuery;
+    }
+
+    /**
+     * 功能描述:多条件查询之dis max query
+     * @param pageable 分页信息
+     * @param indexs   索引数组
+     * @param types    类型数组
+     * @param query    查询条件对列
+     * @param boost    权重值
+     * @param breaker  判断值
+     * @return
+     * @throws ExecutionException
+     * @throws InterruptedException
+     */
+    public SearchQuery searchDisMaxQuery(Pageable pageable, String[] indexs, String[] types, List<QueryBuilder> query,
+                                         float boost, float breaker) {
+        DisMaxQueryBuilder disMaxQuery = QueryBuilders.disMaxQuery();
+        query.stream().forEach(item ->{
+            disMaxQuery.add(item);
+        });
+        disMaxQuery.boost(boost).tieBreaker(breaker);
+        NativeSearchQueryBuilder nativeSearchQueryBuilder = new NativeSearchQueryBuilder();
+        nativeSearchQueryBuilder.withIndices(indexs).withTypes(types).withQuery(disMaxQuery);
+        SearchQuery searchQuery = nativeSearchQueryBuilder.withPageable(pageable).build();
+        return searchQuery;
+    }
+
+    /**
+     *  功能描述:多条件查询之function score query
+     *  @param pageable 分页信息
+     * @param indexs 索引数组
+     * @param types  类型数组
+     * @param matchQuery  条件
+     * @param fieldName   文档属性名称
+     * @param origin
+     * @param scale
+     * @return
+     * @throws InterruptedException
+     * @throws ExecutionException
+     */
+    public SearchQuery searchFunctionScoreQuery(Pageable pageable, String[] indexs, String[] types, QueryBuilder matchQuery,
+                                                String fieldName, Object origin, Object scale) {
+        FunctionScoreQueryBuilder.FilterFunctionBuilder[] functions = {
+                new FunctionScoreQueryBuilder.FilterFunctionBuilder(matchQuery,  ScoreFunctionBuilders.randomFunction().seed(Math.round(Math.random() * 100))),
+                new FunctionScoreQueryBuilder.FilterFunctionBuilder(ScoreFunctionBuilders.exponentialDecayFunction(fieldName, origin, scale))
+        };
+        NativeSearchQueryBuilder nativeSearchQueryBuilder = new NativeSearchQueryBuilder();
+        nativeSearchQueryBuilder.withIndices(indexs).withTypes(types).withQuery(functionScoreQuery(functions));
+        SearchQuery searchQuery = nativeSearchQueryBuilder.withPageable(pageable).build();
+        return searchQuery;
+    }
+
+    /**
+     * 功能描述:多条件查询之boost query
+     * @param pageable 分页信息
+     * @param indexs 索引数组
+     * @param types  类型数组
+     * @param positiveQuery   条件
+     * @param negativeQuery   条件
+     * @param boost  权重值
+     * @return
+     * @throws ExecutionException
+     * @throws InterruptedException
+     */
+    public SearchQuery searchBoostiQuery(Pageable pageable, String[] indexs, String[] types, QueryBuilder positiveQuery,
+                                         QueryBuilder negativeQuery, float boost) {
+        BoostingQueryBuilder boostingQuery = QueryBuilders.boostingQuery(positiveQuery, negativeQuery);
+        boostingQuery.boost(boost);
+        NativeSearchQueryBuilder nativeSearchQueryBuilder = new NativeSearchQueryBuilder();
+        nativeSearchQueryBuilder.withIndices(indexs).withTypes(types).withQuery(boostingQuery);
+        SearchQuery searchQuery = nativeSearchQueryBuilder.withPageable(pageable).build();
+        return searchQuery;
+    }
 }
