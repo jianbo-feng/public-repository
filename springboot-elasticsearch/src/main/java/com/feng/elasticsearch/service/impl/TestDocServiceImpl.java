@@ -30,7 +30,7 @@ import static org.elasticsearch.index.query.QueryBuilders.*;
 import static org.elasticsearch.search.aggregations.AggregationBuilders.terms;
 
 @Service
-public class TestDocServiceImpl extends AbstractEsService implements TestDocService {
+public class TestDocServiceImpl extends AbstractEsService<TestDoc> implements TestDocService {
 
     @Autowired
     private TestDocRepository testDocRepository;

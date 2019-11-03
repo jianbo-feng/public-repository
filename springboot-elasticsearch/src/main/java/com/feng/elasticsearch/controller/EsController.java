@@ -43,6 +43,8 @@ public class EsController {
     public JSONObject all() {
         JSONObject vo = new JSONObject();
         vo.put("data", bookService.all());
+        vo.put("test", bookService.testSearch());
+        vo.put("test2", bookService.testSearch2());
         return vo;
     }
 

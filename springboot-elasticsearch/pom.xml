@@ -81,6 +81,27 @@
             <artifactId>fastjson</artifactId>
             <version>1.2.62</version>
         </dependency>
+        <!--<dependency>
+            <groupId>cn.patterncat</groupId>
+            <artifactId>spring-boot-starter-elasticsearch-jdbc</artifactId>
+            <version>0.0.1</version>
+        </dependency>-->
+        <dependency>
+            <groupId>com.amazon.opendistroforelasticsearch.client</groupId>
+            <artifactId>opendistro-sql-jdbc</artifactId>
+<!--            <version>1.2.0.0</version>-->
+            <version>0.10.0.0</version>
+        </dependency>
+        <!--<dependency>
+            <groupId>com.bbossgroups.plugins</groupId>
+            <artifactId>bboss-elasticsearch-rest-jdbc</artifactId>
+            <version>5.8.9</version>
+        </dependency>-->
+        <dependency>
+            <groupId>org.nlpcn</groupId>
+            <artifactId>elasticsearch-sql</artifactId>
+            <version>6.3.0.0</version>
+        </dependency>
     </dependencies>
 
     <build>
