@@ -1,29 +1,38 @@
 package com.feng.elasticsearch.service.impl;
 
+import com.alibaba.fastjson.JSON;
 import com.feng.elasticsearch.common.DateUtil;
 import com.feng.elasticsearch.common.StringUtil;
 import com.feng.elasticsearch.entity.TestDoc;
 import com.feng.elasticsearch.respository.TestDocRepository;
 import com.feng.elasticsearch.service.TestDocService;
 import org.apache.lucene.index.Terms;
+import org.elasticsearch.action.search.SearchResponse;
+import org.elasticsearch.common.text.Text;
 import org.elasticsearch.index.query.BoolQueryBuilder;
 import org.elasticsearch.index.query.QueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
+import org.elasticsearch.search.SearchHit;
 import org.elasticsearch.search.aggregations.AggregationBuilders;
 import org.elasticsearch.search.aggregations.bucket.terms.TermsAggregationBuilder;
 import org.elasticsearch.search.fetch.subphase.highlight.HighlightBuilder;
+import org.elasticsearch.search.fetch.subphase.highlight.HighlightField;
 import org.elasticsearch.search.sort.SortBuilders;
 import org.elasticsearch.search.sort.SortOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.elasticsearch.core.ElasticsearchTemplate;
+import org.springframework.data.elasticsearch.core.SearchResultMapper;
+import org.springframework.data.elasticsearch.core.aggregation.AggregatedPage;
+import org.springframework.data.elasticsearch.core.aggregation.impl.AggregatedPageImpl;
 import org.springframework.data.elasticsearch.core.query.NativeSearchQueryBuilder;
 import org.springframework.data.elasticsearch.core.query.SearchQuery;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
-import java.util.List;
+import java.lang.reflect.Field;
+import java.util.*;
 
 import static com.feng.elasticsearch.common.DateUtil.FORMAT_DATE_TIME;
 import static org.elasticsearch.index.query.QueryBuilders.*;
@@ -34,6 +43,9 @@ public class TestDocServiceImpl extends AbstractEsService<TestDoc> implements Te
 
     @Autowired
     private TestDocRepository testDocRepository;
+
+//    @Autowired
+//    private ElasticsearchTemplate elasticsearchTemplate;
 
     @Override
     public void save(TestDoc s) {
@@ -88,17 +100,87 @@ public class TestDocServiceImpl extends AbstractEsService<TestDoc> implements Te
 //                .fragmentSize(100);
 //        nativeSearchQueryBuilder.withHighlightFields(hfield, hfield2);
 
+        String preTags = "<em style='color:red'>", postTags = "</em>";
+        // 高亮字段
+        List<String> highFieldNames = Arrays.asList("name", "content");
+        if (null != highFieldNames && !highFieldNames.isEmpty()) {
+            for (String fName : highFieldNames) {
+                nativeSearchQueryBuilder.withHighlightFields(new HighlightBuilder.Field(fName)
+                        .preTags(preTags)
+                        .postTags(postTags)
+                        .fragmentSize(10).numOfFragments(3).noMatchSize(150));
+            }
+        }
+
         nativeSearchQueryBuilder.withQuery(totalFilter)
-                .withHighlightFields(new HighlightBuilder.Field("name"))
-                .withHighlightFields(new HighlightBuilder.Field("content"))
+//                .withHighlightFields(
+//                        new HighlightBuilder.Field("name")
+//                                .preTags(preTags)
+//                                .postTags(postTags)
+//                                .fragmentSize(10).numOfFragments(3).noMatchSize(150),
+//                        new HighlightBuilder.Field("content")
+//                                .preTags(preTags)
+//                                .postTags(postTags)
+//                                .fragmentSize(10).numOfFragments(3).noMatchSize(150))
                 .withSort(SortBuilders.fieldSort("roleId").order(SortOrder.ASC));
+
 //        nativeSearchQueryBuilder.withQuery(QueryBuilders.termsQuery("roleId", "admin", "user2"));
 //        nativeSearchQueryBuilder.withQuery(QueryBuilders.multiMatchQuery(key, "name", "content"));
-
         SearchQuery searchQuery = nativeSearchQueryBuilder.withPageable(pageable).build();
 
-        Page<TestDoc> page = testDocRepository.search(searchQuery);
-        return page;
+        AggregatedPage<TestDoc> docs = getAggregatedPage(searchQuery, TestDoc.class, highFieldNames);
+        /* // 原来的写法
+        AggregatedPage<TestDoc> docs = elasticsearchTemplate.queryForPage(searchQuery, TestDoc.class, new SearchResultMapper() {
+            @Override
+            public <T> AggregatedPage<T> mapResults(SearchResponse response, Class<T> clazz, Pageable pageable) {
+                List<T> chunk = new ArrayList<>();
+                for (SearchHit searchHit : response.getHits()) {
+                    if (null == searchHit) {
+                        return null;
+                    }
+
+                    T tEntity = JSON.parseObject(searchHit.getSourceAsString(), clazz);
+                    Map<String, HighlightField> highlightFieldMap = searchHit.getHighlightFields();
+                    if (null != highFieldNames && !highFieldNames.isEmpty()) {
+                        for (String fName : highFieldNames) {
+                            if (highlightFieldMap.containsKey(fName)) {
+                                try {
+                                    HighlightField highlightField = highlightFieldMap.get(fName);
+                                    String tmpVal = "";
+                                    for (Text text : highlightField.fragments()) {
+                                        tmpVal += text;
+                                    }
+                                    Field cField = clazz.getDeclaredField(fName);
+                                    cField.setAccessible(true);
+                                    cField.set(tEntity, tmpVal);
+                                }
+                                catch(Exception e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        }
+                    }
+                    chunk.add(tEntity);
+                }
+                if (chunk.size() > 0) {
+//                    return new AggregatedPageImpl<>((List<T>) chunk);
+                    return new AggregatedPageImpl<>(chunk);
+                }
+                return null;
+            }
+
+            @Override
+            public <T> T mapSearchHit(SearchHit searchHit, Class<T> type) {
+                if (null != searchHit) {
+                    return JSON.parseObject(searchHit.getSourceAsString(), type);
+                }
+                return null;
+            }
+        });
+         */
+        return docs;
+//        Page<TestDoc> page = testDocRepository.search(searchQuery);
+//        return page;
     }
 
     @Override

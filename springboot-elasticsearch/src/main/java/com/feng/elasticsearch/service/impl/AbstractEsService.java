@@ -14,6 +14,7 @@ import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.client.RequestOptions;
 import org.elasticsearch.client.RestClient;
 import org.elasticsearch.client.RestHighLevelClient;
+import org.elasticsearch.common.text.Text;
 import org.elasticsearch.common.unit.Fuzziness;
 import org.elasticsearch.index.query.*;
 import org.elasticsearch.index.query.functionscore.FunctionScoreQueryBuilder;
@@ -21,6 +22,7 @@ import org.elasticsearch.index.query.functionscore.ScoreFunctionBuilders;
 import org.elasticsearch.search.SearchHit;
 import org.elasticsearch.search.SearchHits;
 import org.elasticsearch.search.builder.SearchSourceBuilder;
+import org.elasticsearch.search.fetch.subphase.highlight.HighlightField;
 import org.nlpcn.es4sql.domain.Where;
 import org.nlpcn.es4sql.exception.SqlParseException;
 import org.nlpcn.es4sql.parse.ElasticSqlExprParser;
@@ -29,11 +31,17 @@ import org.nlpcn.es4sql.parse.WhereParser;
 import org.nlpcn.es4sql.query.maker.QueryMaker;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.elasticsearch.core.ElasticsearchTemplate;
+import org.springframework.data.elasticsearch.core.SearchResultMapper;
+import org.springframework.data.elasticsearch.core.aggregation.AggregatedPage;
+import org.springframework.data.elasticsearch.core.aggregation.impl.AggregatedPageImpl;
 import org.springframework.data.elasticsearch.core.query.NativeSearchQueryBuilder;
 import org.springframework.data.elasticsearch.core.query.SearchQuery;
 
 import java.io.IOException;
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -48,6 +56,10 @@ import static org.elasticsearch.index.query.QueryBuilders.*;
 public abstract class AbstractEsService<T> {
 
     private static final Logger logger = LoggerFactory.getLogger(AbstractEsService.class);
+
+
+    @Autowired
+    private ElasticsearchTemplate elasticsearchTemplate;
 
     /**
      * 根据关键词检索
@@ -548,5 +560,62 @@ public abstract class AbstractEsService<T> {
             }
         }
         return list;
+    }
+
+    /**
+     * 高亮处理
+     * @param searchQuery 查询器
+     * @param tClass 类
+     * @param highFieldNames 高亮字段
+     * @return
+     */
+    public AggregatedPage<T> getAggregatedPage(SearchQuery searchQuery, Class<?> tClass, List<String> highFieldNames) {
+        return (AggregatedPage<T>) elasticsearchTemplate.queryForPage(searchQuery, tClass, new SearchResultMapper() {
+            @Override
+            public <T> AggregatedPage<T> mapResults(SearchResponse response, Class<T> clazz, Pageable pageable) {
+                List<T> chunk = new ArrayList<>();
+                for (SearchHit searchHit : response.getHits()) {
+                    if (null == searchHit) {
+                        return null;
+                    }
+
+                    T tEntity = mapSearchHit(searchHit, clazz);
+                    Map<String, HighlightField> highlightFieldMap = searchHit.getHighlightFields();
+                    if (null != highFieldNames && !highFieldNames.isEmpty()) {
+                        for (String fName : highFieldNames) {
+                            if (highlightFieldMap.containsKey(fName)) {
+                                try {
+                                    HighlightField highlightField = highlightFieldMap.get(fName);
+                                    String tmpVal = "";
+                                    for (Text text : highlightField.fragments()) {
+                                        tmpVal += text;
+                                    }
+                                    Field cField = clazz.getDeclaredField(fName);
+                                    cField.setAccessible(true);
+                                    cField.set(tEntity, tmpVal);
+                                }
+                                catch(Exception e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        }
+                    }
+                    chunk.add(tEntity);
+                }
+                if (chunk.size() > 0) {
+//                    return new AggregatedPageImpl<>((List<T>) chunk);
+                    return new AggregatedPageImpl<>(chunk);
+                }
+                return null;
+            }
+
+            @Override
+            public <T> T mapSearchHit(SearchHit searchHit, Class<T> type) {
+                if (null != searchHit) {
+                    return JSON.parseObject(searchHit.getSourceAsString(), type);
+                }
+                return null;
+            }
+        });
     }
 }
