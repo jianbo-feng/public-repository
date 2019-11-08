@@ -9,6 +9,7 @@ import com.feng.elasticsearch.service.TestDocService;
 import org.apache.lucene.index.Terms;
 import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.common.text.Text;
+import org.elasticsearch.common.unit.Fuzziness;
 import org.elasticsearch.index.query.BoolQueryBuilder;
 import org.elasticsearch.index.query.QueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
@@ -74,16 +75,23 @@ public class TestDocServiceImpl extends AbstractEsService<TestDoc> implements Te
                 .filter(termsQuery("roleId", "admin", "user2"));        // 必须满足roleId in ('admin', 'user2')
         key = StringUtil.trim(key).toLowerCase();
         if (!"".equals(key)) {
+
             /**
              * 使用multiMatchQuery检索会出现数据不完整的情况；
              * 使用boolQuery里面加2个通配查询的方式又不能体现分词检索
              * 所以采用boolQuery里面加 两个should（即'OR'）查询方式，即要么满足multiMatchQuery要么满足 boolQuery里面加2个通配查询 方式
+             * 先通配查询，然后模糊查询，最后多字段分词检索
              */
             totalFilter.must(boolQuery()//.minimumShouldMatch(1)
-                    .should(multiMatchQuery(key, "name", "content"))    // 多字段分词检索
                     .should(boolQuery()                                             // 通配查询
                             .should(wildcardQuery("name", "*" + key + "*"))
-                            .should(wildcardQuery("content", "" + key + "*")))
+                            .should(wildcardQuery("content", "" + key + "*"))
+                    )
+                    .should(boolQuery()                                             // 模糊查询
+                            .should(fuzzyQuery("name", key).fuzziness(Fuzziness.AUTO))
+                            .should(fuzzyQuery("conent", key).fuzziness(Fuzziness.AUTO))
+                    )
+                    .should(multiMatchQuery(key, "name", "content"))    // 多字段分词检索
             );
         }
 
