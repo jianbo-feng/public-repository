@@ -3,10 +3,10 @@ package com.feng.session.redis.service.impl;
 import com.feng.session.redis.entity.User;
 import com.feng.session.redis.repository.UserRepository;
 import com.feng.session.redis.service.UserService;
+import com.google.common.collect.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -20,9 +20,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> getAll() {
-        List<User> list = new ArrayList<>();
-        Iterable<User> iterable = userRepository.findAll();
-        iterable.forEach(c -> list.add(c));
-        return list;
+        return Lists.newArrayList(userRepository.findAll());
     }
 }
