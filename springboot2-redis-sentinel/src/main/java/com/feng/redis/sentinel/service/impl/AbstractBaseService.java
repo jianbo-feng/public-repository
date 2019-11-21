@@ -9,6 +9,9 @@ public abstract class AbstractBaseService<T, ID> {
 
     @Autowired
     private CrudRepository crudRepository;
+    // Eclipse或STS上的写法
+//    private CrudRepository<T, ID> crudRepository; /
+
 
     /**
      * 保存
