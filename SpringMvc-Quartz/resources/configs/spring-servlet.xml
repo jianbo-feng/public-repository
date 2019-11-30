@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:context="http://www.springframework.org/schema/context" 
+	xmlns:p="http://www.springframework.org/schema/p"
+
+	xmlns:mvc="http://www.springframework.org/schema/mvc" 
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context-4.0.xsd
+		http://www.springframework.org/schema/jee
+		http://www.springframework.org/schema/jee/spring-jee-4.0.xsd
+		http://www.springframework.org/schema/mvc
+		http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+		http://www.springframework.org/schema/util 
+		http://www.springframework.org/schema/util/spring-util-4.0.xsd"
+		default-lazy-init="true">
+
+	<!-- <context:component-scan base-package="com.maven.controller" /> -->
+	<context:component-scan base-package="com.feng.springmvc"/>
+	<!-- <mvc:annotation-driven /> -->
+
+	<!-- // 简单配置-->
+	<!-- <bean id="placeholderConfig"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+    	<property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE"/>
+        <property name="ignoreResourceNotFound" value="true"/> 
+        <property name="locations">
+	        <list>
+	            <value>classpath*:/configs/jdbc.properties</value>
+	        </list>
+        </property>	
+	</bean>  -->
+	<bean class="com.feng.springmvc.config.EncryptPropertyPlaceholderConfigurer">
+        <!-- 除了支持配置的properties文件外，还支持系统属性 -->
+       	<property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE"/>
+       	<!-- 是否可以忽略无法加载的文件 -->
+        <property name="ignoreResourceNotFound" value="true"/>
+        <property name="locations">
+	        <list>
+	            <value>classpath*:/configs/jdbc*.properties</value>
+	        </list>
+        </property>	
+        <property name="profile" value="test"/>
+	</bean>
+	
+
+	<mvc:resources mapping="/styles/**" location="/styles/" />
+
+	<mvc:resources mapping="/scripts/**" location="/scripts/" />
+
+	<mvc:resources mapping="/images/**" location="/images/" />
+
+
+
+	<bean
+
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+
+		<property name="prefix" value="/WEB-INF/views/" />
+
+		<property name="suffix" value=".jsp" />
+
+	</bean>
+	
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="smtp.qq.com"/>
+		<property name="username" value="445121408"/>
+		<property name="password" value="lpryaaaulvfqbhee"/>
+		<property name="javaMailProperties">
+            <props>
+                <!--设置是否需要身份验证-->
+                <prop key="mail.smtp.auth">true</prop>
+            </props>
+        </property>
+	</bean>
+	<!--  
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close"> 
+	    <property name="driverClassName"> 
+	    	<value>org.postgresql.Driver</value> 
+	    </property> 
+	    <property name="url"> 
+	    	<value>jdbc:postgresql://localhost:5432/quartz</value> 
+	    </property> 
+	    <property name="username"> 
+	    	<value>postgres</value> 
+	    </property> 
+	    <property name="password"> 
+	    	<value>postgres</value> 
+	    </property> 
+	    <property name="maxActive"> 
+	    	<value>255</value> 
+	    </property> 
+	    <property name="maxIdle"> 
+	    	<value>2</value> 
+	    </property> 
+	    <property name="maxWait"> 
+	    	<value>120000</value> 
+	    </property> 
+    </bean>
+    -->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+    	<property name="driverClass"> 
+	    	<value>${jdbc.driver-class}</value> 
+	    </property> 
+    	<property name="jdbcUrl">
+    		<value>${jdbc.url}</value>
+    	</property>
+    	<property name="user">
+    		<value>${jdbc.user}</value>
+    	</property>
+    	<property name="password">
+    		<value>${jdbc.password}</value>
+    	</property>
+    	<!--当连接池中的连接耗尽的时候c3p0一次同时获取的连接数。Default: 3 --> 
+        <property name="acquireIncrement">
+            <value>${c3p0.acquireIncrement}</value>
+        </property>
+        <!--初始化时获取三个连接，取值应在minPoolSize与maxPoolSize之间。Default: 3 --> 
+        <property name="initialPoolSize">
+            <value>${c3p0.initialPoolSize}</value>
+        </property>
+        <property name="minPoolSize">
+            <value>${c3p0.minPoolSize}</value>
+        </property>
+        <property name="maxPoolSize">
+            <value>${c3p0.maxPoolSize}</value>
+        </property>
+        <!--最大空闲时间,60秒内未使用则连接被丢弃。若为0则永不丢弃。Default: 0 --> 
+        <property name="maxIdleTime">
+            <value>${c3p0.maxIdleTime}</value>
+        </property>
+        <!--每60秒检查所有连接池中的空闲连接。Default: 0 --> 
+        <property name="idleConnectionTestPeriod">
+            <value>${c3p0.idleConnectionTestPeriod}</value>
+        </property>
+        <!-- JDBC的标准参数，用以控制数据源内加载的PreparedStatements数量。但由于预缓存的statements 
+	                        属于单个connection而不是整个连接池。所以设置这个参数需要考虑到多方面的因素。 
+	                        如果maxStatements与maxStatementsPerConnection均为0，则缓存被关闭。Default: 0--> 
+        <property name="maxStatements">
+            <value>${c3p0.maxStatements}</value>
+        </property>
+        <!-- c3p0是异步操作的，缓慢的JDBC操作通过帮助进程完成。扩展这些操作可以有效的提升性能 通过
+                                  多线程实现多个操作同时被执行。Default: 3--> 
+        <property name="numHelperThreads">
+            <value>${c3p0.numHelperThreads}</value>
+        </property>
+    </bean>
+	
+	<bean id="freemarkerConfig" class="freemarker.template.Configuration"/> 
+    <!-- 总管理类 如果将lazy-init='false'那么容器启动就会执行调度程序  -->  
+    <bean id="jobFactory" class="com.feng.springmvc.schedule.factory.JobFactory"/>
+    <bean id="scheduler" lazy-init="true" autowire="no" class="org.springframework.scheduling.quartz.SchedulerFactoryBean" >
+    	<property name="jobFactory" ref="jobFactory"/>
+    	<property name="dataSource" ref="dataSource"/>
+    	<!--  
+    	<property name="autoStartup" value="true"/>
+    	-->
+    	<property name="overwriteExistingJobs" value="true"/>
+    	<property name="startupDelay" value="30"/>
+    	<property name="autoStartup" value="true"/>
+    	<property name="waitForJobsToCompleteOnShutdown" value="true"/>
+    	<property name="configLocation" value="classpath:/configs/quartz.properties"/>
+    </bean>   
+ 
+    <!--这个类是用来设置触发时间的， startJobs方法启动调度容器，然后按照上面触发器每隔1s执行所配置的myJob2.doSomething()方法 -->     
+    <bean id="quartzManager" class="com.feng.springmvc.config.QuartzManager" lazy-init="false" init-method="init" >  
+        <!-- <property name="scheduler" ref="scheduler" />   -->
+    </bean>
+    
+    <bean id="transportClient" class="com.feng.springmvc.config.TransportClientFactoryBean"> 
+     	<property name="clusterNodes" value="127.0.0.1:9300"/>
+     	<property name="clusterName" value="elasticsearch"/>
+     </bean>
+     <bean id="transportClientRepository" class="com.feng.springmvc.repository.TransportClientRepository">
+     	<constructor-arg ref="transportClient"/>
+     </bean>
+
+</beans>
