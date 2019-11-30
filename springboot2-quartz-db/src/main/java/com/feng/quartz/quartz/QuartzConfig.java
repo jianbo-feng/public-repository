@@ -1,7 +1,7 @@
-package com.songguoliang.springboot.quartz;
+package com.feng.quartz.quartz;
 
 import org.quartz.*;
-import com.songguoliang.springboot.quartz.factory.JobFactory;
+import com.feng.quartz.quartz.factory.JobFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.PropertiesFactoryBean;
 import org.springframework.context.annotation.Bean;
@@ -26,36 +26,36 @@ public class QuartzConfig {
     @Autowired
     private DataSource dataSource;
 
-    @Bean
-    public JobDetail testQuartz1() {
-        return JobBuilder.newJob(TestTask1.class).withIdentity("testTask1").storeDurably().build();
-    }
-
-    @Bean
-    public Trigger testQuartzTrigger1() {
-        //5秒执行一次
-        SimpleScheduleBuilder scheduleBuilder = SimpleScheduleBuilder.simpleSchedule()
-                .withIntervalInSeconds(5)
-                .repeatForever();
-        return TriggerBuilder.newTrigger().forJob(testQuartz1())
-                .withIdentity("testTask1")
-                .withSchedule(scheduleBuilder)
-                .build();
-    }
-
-    @Bean
-    public JobDetail testQuartz2() {
-        return JobBuilder.newJob(TestTask2.class).withIdentity("testTask2").storeDurably().build();
-    }
-
-    @Bean
-    public Trigger testQuartzTrigger2() {
-        //cron方式，每隔5秒执行一次
-        return TriggerBuilder.newTrigger().forJob(testQuartz2())
-                .withIdentity("testTask2")
-                .withSchedule(CronScheduleBuilder.cronSchedule("*/5 * * * * ?"))
-                .build();
-    }
+//    @Bean
+//    public JobDetail testQuartz1() {
+//        return JobBuilder.newJob(TestTask1.class).withIdentity("testTask1").storeDurably().build();
+//    }
+//
+//    @Bean
+//    public Trigger testQuartzTrigger1() {
+//        //5秒执行一次
+//        SimpleScheduleBuilder scheduleBuilder = SimpleScheduleBuilder.simpleSchedule()
+//                .withIntervalInSeconds(5)
+//                .repeatForever();
+//        return TriggerBuilder.newTrigger().forJob(testQuartz1())
+//                .withIdentity("testTask1")
+//                .withSchedule(scheduleBuilder)
+//                .build();
+//    }
+//
+//    @Bean
+//    public JobDetail testQuartz2() {
+//        return JobBuilder.newJob(TestTask2.class).withIdentity("testTask2").storeDurably().build();
+//    }
+//
+//    @Bean
+//    public Trigger testQuartzTrigger2() {
+//        //cron方式，每隔5秒执行一次
+//        return TriggerBuilder.newTrigger().forJob(testQuartz2())
+//                .withIdentity("testTask2")
+//                .withSchedule(CronScheduleBuilder.cronSchedule("*/5 * * * * ?"))
+//                .build();
+//    }
 
     /**
      * 允许动态定时任务、静态定时任务(testTask1、testTask2)可以同时运行的方式：
@@ -63,7 +63,6 @@ public class QuartzConfig {
      */
 
     /* 仅允许动态定时任务设置开始 */
-
     @Autowired
     private JobFactory jobFactory;
 
@@ -73,7 +72,7 @@ public class QuartzConfig {
         try {
             schedulerFactoryBean.setStartupDelay(60);
             schedulerFactoryBean.setDataSource(dataSource);
-//            schedulerFactoryBean.setAutoStartup(false);
+//            /*schedulerFactoryBean.setAutoStartup(false);*/
             schedulerFactoryBean.setOverwriteExistingJobs(true);
             schedulerFactoryBean.setQuartzProperties(quartzProperties());
             schedulerFactoryBean.setTaskExecutor(schedulerThreadPool());

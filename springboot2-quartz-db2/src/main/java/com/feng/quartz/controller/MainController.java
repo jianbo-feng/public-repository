@@ -1,4 +1,4 @@
-package com.songguoliang.springboot.controller;
+package com.feng.quartz.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -12,7 +12,7 @@ spring:
 
 mybatis:
   mapper-locations: classpath:mapper/*.xml
-  type-aliases-package: com.songguoliang.springboot.entity
+  type-aliases-package: com.feng.quartz.entity
   configuration: # mybatis全局配置
     cache-enabled: true
     local-cache-scope: session
@@ -34,6 +34,6 @@ pagehelper:
   params: count=countSql
   returnPageInfo: check
 server:
-  port: 8083
+  port: 8085
   servlet:
     context-path: /quartz-db
