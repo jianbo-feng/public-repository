@@ -1,33 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b009e6b7-f76a-4722-b3dc-f9021add59a2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../springboot2-task/springboot-task-001/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../springboot2-task/springboot-task-001/src/main/java/com/feng/task/config/ShedlockConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../springboot2-task/springboot-task-001/src/main/java/com/feng/task/job/HelloJob.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../springboot2-task/springboot-task-001/src/main/java/com/feng/task/util/DateUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../springboot2-task/springboot-task-001/src/main/java/com/feng/task/util/StringUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../springboot2-task/springboot-task-001/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../springboot2-task/springboot-task-001/src/main/resources/scripts/init.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../springboot2-task/springboot-task-001/src/main/resources/templates/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../springboot2-task/springboot-task-002/src/main/java/com/feng/task/config/ShedlockConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../springboot2-task/springboot-task-002/src/main/java/com/feng/task/job/HelloJob.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../springboot2-task/springboot-task-002/src/main/java/com/feng/task/util/DateUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../springboot2-task/springboot-task-002/src/main/java/com/feng/task/util/StringUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../springboot2-task/springboot-task-002/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../springboot2-task/springboot-task-002/src/main/resources/templates/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../springboot2-task/springboot-task-redis-01/src/main/java/com/feng/task/config/ShedLockConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../springboot2-task/springboot-task-redis-01/src/main/java/com/feng/task/scheduler/TestScheduler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../springboot2-task/springboot-task-redis-01/src/main/java/com/feng/task/util/DateUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../springboot2-task/springboot-task-redis-01/src/main/java/com/feng/task/util/StringUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../springboot2-task/springboot-task-redis-01/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../springboot2-task/springboot-task-redis-02/src/main/java/com/feng/task/config/ShedLockConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../springboot2-task/springboot-task-redis-02/src/main/java/com/feng/task/scheduler/TestScheduler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../springboot2-task/springboot-task-redis-02/src/main/java/com/feng/task/util/DateUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../springboot2-task/springboot-task-redis-02/src/main/java/com/feng/task/util/StringUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../springboot2-task/springboot-task-redis-02/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="b009e6b7-f76a-4722-b3dc-f9021add59a2" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
