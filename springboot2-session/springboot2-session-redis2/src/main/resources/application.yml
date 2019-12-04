@@ -21,3 +21,6 @@ spring:
     store-type: redis
 server:
   port: 9991
+
+project:
+  domain:

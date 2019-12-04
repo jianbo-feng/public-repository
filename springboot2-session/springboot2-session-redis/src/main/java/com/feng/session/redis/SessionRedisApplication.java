@@ -1,5 +1,6 @@
 package com.feng.session.redis;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
@@ -20,16 +21,25 @@ public class SessionRedisApplication {
         SpringApplication.run(SessionRedisApplication.class, args);
     }
 
+    @Value("${project.domain}")
+    private String domain;
+
     @Bean
     public CookieSerializer cookieSerializer() {
         DefaultCookieSerializer cookieSerializer = new DefaultCookieSerializer();
+
+        domain = domain == null ? "" : domain.trim();
+        if (!"".equals(domain)) {
+            cookieSerializer.setDomainName(domain);
+        }
 
 //        cookieSerializer.setCookieName("");
         cookieSerializer.setCookiePath("/");
 //        cookieSerializer.setCookieMaxAge(3600*30);
 //        cookieSerializer.setDomainName("localhost");
 //        cookieSerializer.setDomainNamePattern("");
-        cookieSerializer.setUseBase64Encoding(false);
+//        cookieSerializer.setUseBase64Encoding(false); //  设置cookie是否Base64加密
+        cookieSerializer.setUseHttpOnlyCookie(false);   // 需要设置，否则跨域或子域会有问题
 
         // 取消仅限同一站点设置
         cookieSerializer.setSameSite(null);
