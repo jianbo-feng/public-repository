@@ -9,6 +9,9 @@ import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.listener.PatternTopic;
 import org.springframework.data.redis.listener.RedisMessageListenerContainer;
 
+/**
+ * Redis发布/订阅配置
+ */
 @Configuration
 public class RedisPubsubConfig {
 

@@ -7,4 +7,9 @@
 
 {"service":"statistics_user"}
 
+// 全局推送
+{"service":"broadcast","content":"你好，欢迎大家"}
+
+// 点对点
+{"service":"peertopeer","content":"你好，欢迎大家", "from":"fromUser", "to":"toUser"}
 ```

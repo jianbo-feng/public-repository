@@ -17,7 +17,7 @@ import org.springframework.data.redis.listener.RedisMessageListenerContainer;
 import org.springframework.data.redis.listener.adapter.MessageListenerAdapter;
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 /**
- * Redis配置
+ * Redis(适配器)配置
  */
 @Configuration
 public class RedisAdapterConfig {

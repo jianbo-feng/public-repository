@@ -1,5 +1,7 @@
 package com.feng.redis.websocket.websocket;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.feng.redis.websocket.redis.RedisService;
 import com.feng.redis.websocket.util.JSONUtil;
 import org.slf4j.Logger;
@@ -36,7 +38,7 @@ public class WebSocketServer {
     private static AtomicInteger onlineCount = new AtomicInteger(0);
 
     //concurrent包的线程安全ConcurrentHashMap，用来存放每个客户端对应的WebSocketServer对象
-    private static ConcurrentHashMap<String, WebSocketServer> webSocketSet = new ConcurrentHashMap<String, WebSocketServer>();
+    private static ConcurrentHashMap<String, WebSocketServer> webSocketSet = new ConcurrentHashMap<>();
 
     //与某个客户端的连接会话，需要通过它来给客户端发送数据
     private Session session;
@@ -83,11 +85,23 @@ public class WebSocketServer {
      */
     @OnMessage
     public void onMessage(String message, Session session) {
-        boolean success=false;
+        boolean success = false;
+        // 是否广播
+        boolean isBroadcast = false;
+        // 是否点对点
+        boolean isPeer2Peer = false;
+        String to = "", from = "", content = "";
         logger.info("收到来自窗口" + uuid + "的信息:" + message);
         // 解析页面主动发送参数
-        Map<String,Object> param=null;
+        Map<String,Object> param = null;
         try {
+            JSONObject jsonObject = JSON.parseObject(message);
+            if (jsonObject.containsKey("service")) {
+                System.err.println("service ==>" + jsonObject.get("service"));
+            }
+            else {
+                System.err.println("service ==> is null");
+            }
             param = JSONUtil.getObjectFromJson(message, Map.class);
         } catch (IOException e) {
             sendFeedbackMessage(0,"指令参数解析错误",uuid);
@@ -97,7 +111,7 @@ public class WebSocketServer {
         }
 
         try {
-            if(redisService==null){
+            if(redisService == null){
                 logger.error("redisService注入失败!");
                 throw new  Exception("redisService注入失败,Spring默认管理的对象都是单例模式,请将要注入的属性设为static");
             }else{
@@ -105,24 +119,76 @@ public class WebSocketServer {
             }
 
             //解析参数服务类型
-            String service= (String) param.get("service");
+            String service = (String) param.get("service");
+//            String service = "";
+//            if (param.containsKey("service")) {
+//                service = (String) param.get(service);
+//            }
             if(WebSocketEnum.STATISTICS_USER.getValue().equals(service)){
                 // 做相应的设备用户统计数据处理
 
-                success=true;
-            }else  if(WebSocketEnum.STATISTICS_EVENTS.getValue().equals(service)){
+                success = true;
+            }
+            else  if(WebSocketEnum.STATISTICS_EVENTS.getValue().equals(service)){
                 // 做相应的事件周期及列表统计数据处理
 
-                success=true;
+                success = true;
+            }
+            else if(WebSocketEnum.BROADCAST.getValue().equals(service)) {
+                isBroadcast = true;
+                if (param.containsKey("content")) {
+                    content = String.valueOf(param.get("content"));
+                }
+                else {
+                    content = "";
+                }
+                success = true;
+            }
+            else if(WebSocketEnum.PEER_TO_PEER.getValue().equals(service)) {
+                isPeer2Peer = true;
+                if (param.containsKey("from")) {
+                    from = String.valueOf(param.get("from"));
+                }
+                else {
+                    from = "";
+                }
+                if (param.containsKey("to")) {
+                    to = String.valueOf(param.get("to"));
+                }
+                else {
+                    to = "";
+                }
+                if (param.containsKey("content")) {
+                    content = String.valueOf(param.get("content"));
+                }
+                else {
+                    content = "";
+                }
+                success = true;
             }
         } catch (Exception e) {
             logger.error("参数解析成功，但发生了如下错误:"+e.getMessage());
             e.printStackTrace();
         }finally {
             if(success){
-                sendFeedbackMessage(1,"指令发送成功",uuid);
+                if (isBroadcast || isPeer2Peer) {
+                    if (isBroadcast) {
+                        try {
+                            broadcastAll(content);
+                        }
+                        catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    if (isPeer2Peer) {
+                        sendFeedbackMessage(1, content, to);
+                    }
+                }
+                else {
+                    sendFeedbackMessage(1,"指令发送成功", uuid);
+                }
             }else{
-                sendFeedbackMessage(0,"指令发送失败，请核对参数是否正确",uuid);
+                sendFeedbackMessage(0,"指令发送失败，请核对参数是否正确", uuid);
             }
         }
     }
@@ -186,9 +252,9 @@ public class WebSocketServer {
      * @param message
      * @param uuid
      */
-    public static void sendFeedbackMessage(int status,String message,String uuid){
+    public static void sendFeedbackMessage(int status,String message, String uuid) {
         try {
-            Map<String, Object> map = new HashMap<String, Object>();
+            Map<String, Object> map = new HashMap<>();
             String json = JSONUtil.getJsonFromObject(new WebSocketMessage(status, message, map));
             // 响应客户端请求页面
             WebSocketServer.broadcastOne(json, uuid);
@@ -207,7 +273,7 @@ public class WebSocketServer {
      */
     public static String getFeedbackMessage(int status,String message,Object obj){
         try {
-            Map<String, Object> map = new HashMap<String, Object>();
+            Map<String, Object> map = new HashMap<>();
             return  JSONUtil.getJsonFromObject(new WebSocketMessage(status, message, obj));
         } catch (Exception e) {
             logger.error("对象转JSON异常!");
@@ -245,9 +311,9 @@ public class WebSocketServer {
      * @return
      */
     public static List<String> getClients(){
-        List<String> list=new ArrayList<String>();
+        List<String> list = new ArrayList<>();
         // 并发避免遍历出问题
-        Enumeration<String> keys=webSocketSet.keys();
+        Enumeration<String> keys= webSocketSet.keys();
         while (keys.hasMoreElements()){
             list.add(keys.nextElement());
         }

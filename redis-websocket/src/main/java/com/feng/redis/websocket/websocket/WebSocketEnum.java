@@ -11,7 +11,17 @@ public enum WebSocketEnum {
     /**
      * 事件相关数量统计（周期统计、周期列表）
      */
-    STATISTICS_EVENTS("statistics_events");
+    STATISTICS_EVENTS("statistics_events"),
+
+    /**
+     * 广播消息
+     */
+    BROADCAST("broadcast"),
+
+    /**
+     * 点对点(发送消息)
+     */
+    PEER_TO_PEER("peertopeer");
 
     WebSocketEnum(String value){
         this.value = value;
