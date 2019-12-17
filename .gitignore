@@ -76,3 +76,16 @@ crate-demo/src/main/java/com/feng/.DS_Store
 crate-demo/src/main/java/com/.DS_Store
 crate-demo/src/main/java/.DS_Store
 crate-demo/src/main/.DS_Store
+*.lock
+vertx-demo/vertx-sample2/.gradle/5.4.1/fileHashes/fileHashes.lock
+vertx-demo/vertx-sample2/.gradle/buildOutputCleanup/buildOutputCleanup.lock
+vertx-demo/vertx-sample3/.gradle/5.4.1/fileHashes/fileHashes.lock
+vertx-demo/vertx-sample3/.gradle/buildOutputCleanup/buildOutputCleanup.lock
+vertx-demo/vertx-sample4/.gradle/5.4.1/fileHashes/fileHashes.lock
+vertx-demo/vertx-sample4/.gradle/buildOutputCleanup/buildOutputCleanup.lock
+vertx-demo/vertx-sample2/.gradle/5.4.1/fileHashes/fileHashes.lock
+vertx-demo/vertx-sample2/.gradle/buildOutputCleanup/buildOutputCleanup.lock
+vertx-demo/vertx-sample3/.gradle/5.4.1/fileHashes/fileHashes.lock
+vertx-demo/vertx-sample3/.gradle/buildOutputCleanup/buildOutputCleanup.lock
+vertx-demo/vertx-sample4/.gradle/5.4.1/fileHashes/fileHashes.lock
+vertx-demo/vertx-sample4/.gradle/buildOutputCleanup/buildOutputCleanup.lock

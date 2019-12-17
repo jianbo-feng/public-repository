@@ -12,6 +12,7 @@
             <option value="$PROJECT_DIR$/vertx-sample1" />
           </set>
         </option>
+        <option name="useAutoImport" value="true" />
         <option name="useQualifiedModuleNames" value="true" />
       </GradleProjectSettings>
       <GradleProjectSettings>
@@ -24,6 +25,7 @@
             <option value="$PROJECT_DIR$/vertx-sample2" />
           </set>
         </option>
+        <option name="useAutoImport" value="true" />
         <option name="useQualifiedModuleNames" value="true" />
       </GradleProjectSettings>
       <GradleProjectSettings>
@@ -36,6 +38,7 @@
             <option value="$PROJECT_DIR$/vertx-sample3" />
           </set>
         </option>
+        <option name="useAutoImport" value="true" />
         <option name="useQualifiedModuleNames" value="true" />
       </GradleProjectSettings>
       <GradleProjectSettings>
@@ -48,6 +51,7 @@
             <option value="$PROJECT_DIR$/vertx-sample4" />
           </set>
         </option>
+        <option name="useAutoImport" value="true" />
         <option name="useQualifiedModuleNames" value="true" />
       </GradleProjectSettings>
       <GradleProjectSettings>
@@ -60,6 +64,7 @@
             <option value="$PROJECT_DIR$/vertx-sample5" />
           </set>
         </option>
+        <option name="useAutoImport" value="true" />
         <option name="useQualifiedModuleNames" value="true" />
       </GradleProjectSettings>
       <GradleProjectSettings>
@@ -72,6 +77,7 @@
             <option value="$PROJECT_DIR$/vertx-sample6" />
           </set>
         </option>
+        <option name="useAutoImport" value="true" />
         <option name="useQualifiedModuleNames" value="true" />
       </GradleProjectSettings>
       <GradleProjectSettings>
@@ -84,6 +90,7 @@
             <option value="$PROJECT_DIR$/vertx-sample7" />
           </set>
         </option>
+        <option name="useAutoImport" value="true" />
         <option name="useQualifiedModuleNames" value="true" />
       </GradleProjectSettings>
       <GradleProjectSettings>
@@ -96,6 +103,7 @@
             <option value="$PROJECT_DIR$/vertx-sample8" />
           </set>
         </option>
+        <option name="useAutoImport" value="true" />
         <option name="useQualifiedModuleNames" value="true" />
       </GradleProjectSettings>
     </option>

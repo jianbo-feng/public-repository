@@ -109,7 +109,7 @@ public class TestDocServiceImpl extends AbstractEsService<TestDoc> implements Te
 //        nativeSearchQueryBuilder.withHighlightFields(hfield, hfield2);
 
         String preTags = "<em style='color:red'>", postTags = "</em>";
-        // 高亮字段
+        // 高亮字段(如果搜索结果的文档中需要设置高亮的字段没有值或为null，则有可能导致搜索结果异常或查询不到结果)
         List<String> highFieldNames = Arrays.asList("name", "content");
         if (null != highFieldNames && !highFieldNames.isEmpty()) {
             for (String fName : highFieldNames) {
