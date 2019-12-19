@@ -6,16 +6,14 @@ spring:
       repositories:
         enabled: true
       cluster-name: elasticsearch
-      cluster-nodes: 192.168.1.103:9300,192.168.1.103:9500
+    # 集群配置
+    #  cluster-nodes: 192.168.1.103:9300,192.168.1.103:9500
+    # 单台配置
+      cluster-nodes: 127.0.0.1:9300
 
 server:
   port: 9996
 
-#elasticsearch:
-#  cluster-name: elasticsearch
-#  host: 127.0.0.1
-#  port: 9300
-#  pool: 5
 logging:
   level:
     com:

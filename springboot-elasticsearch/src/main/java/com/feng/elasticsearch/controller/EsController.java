@@ -134,10 +134,11 @@ public class EsController {
         doc = new TestDoc();
         doc.setId(UUID.randomUUID().toString());
         doc.setDate(new Date());
-        doc.setName("ABdoc-53");
-        doc.setContent("This is AbcD第五十三遍文档");
+        doc.setName("ABdoc-53-2019-12-19 --008");
+        doc.setContent("This is AbcD第五十三遍文档008");
         doc.setType("smart");
         doc.setRoleId("user2");
+        doc.setAssignedRoleId("Admin_1234567");
         docService.save(doc);
         return vo;
     }

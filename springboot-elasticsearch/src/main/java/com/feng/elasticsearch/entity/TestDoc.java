@@ -28,6 +28,10 @@ public class TestDoc implements Serializable {
     @Field(type = FieldType.Keyword)
     private String roleId;
 
+    // 指派ID
+    @Field(type = FieldType.Text, store = true)
+    private String assignedRoleId;
+
     /**
      * 需要在elasticsearch/plugins/下添加组件elasticsearch-analysis-ik（还可以添加elasticsearch-analysis-pinyin、elasticsearch-analysis-stconvert）组件
      */
@@ -82,16 +86,25 @@ public class TestDoc implements Serializable {
         this.roleId = roleId;
     }
 
+    public String getAssignedRoleId() {
+        return assignedRoleId;
+    }
+
+    public void setAssignedRoleId(String assignedRoleId) {
+        this.assignedRoleId = assignedRoleId;
+    }
+
     public TestDoc() {
     }
 
-    public TestDoc(String id, String name, String content, String type, String roleId, Date date) {
+    public TestDoc(String id, String name, String content, String type, String roleId, Date date, String assignedRoleId) {
         this.id = id;
         this.name = name;
         this.content = content;
         this.type = type;
         this.roleId = roleId;
         this.date = date;
+        this.assignedRoleId = assignedRoleId;
     }
 
     @Override
@@ -102,6 +115,7 @@ public class TestDoc implements Serializable {
                 ", content='" + content + '\'' +
                 ", type='" + type + '\'' +
                 ", roleId='" + roleId + '\'' +
+                ", assignedRoleId='" + assignedRoleId + '\'' +
                 ", date=" + date +
                 '}';
     }

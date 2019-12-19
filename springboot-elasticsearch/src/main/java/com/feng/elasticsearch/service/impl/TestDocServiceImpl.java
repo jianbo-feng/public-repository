@@ -7,6 +7,7 @@ import com.feng.elasticsearch.entity.TestDoc;
 import com.feng.elasticsearch.respository.TestDocRepository;
 import com.feng.elasticsearch.service.TestDocService;
 import org.apache.lucene.index.Terms;
+import org.apache.lucene.queryparser.classic.QueryParser;
 import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.common.text.Text;
 import org.elasticsearch.common.unit.Fuzziness;
@@ -37,6 +38,7 @@ import java.util.*;
 
 import static com.feng.elasticsearch.common.DateUtil.FORMAT_DATE_TIME;
 import static org.elasticsearch.index.query.QueryBuilders.*;
+import static org.elasticsearch.index.query.QueryBuilders.matchPhraseQuery;
 import static org.elasticsearch.search.aggregations.AggregationBuilders.terms;
 
 @Service
@@ -69,11 +71,24 @@ public class TestDocServiceImpl extends AbstractEsService<TestDoc> implements Te
         Date startDate = DateUtil.str2Date("2019-11-02 12:46:45", FORMAT_DATE_TIME);
         startDate = DateUtil.str2Date("2019-10-02 12:46:45", FORMAT_DATE_TIME);
         Date endDate = new Date();
+        String assignedRoleId = "FENGJIANBO547";
+//        assignedRoleId = "Admin_1234567";
+        assignedRoleId = "Admin-1234567";
+//        assignedRoleId = "user3;";
+//        assignedRoleId = "user2;";
+//        assignedRoleId = "user4;";
+        assignedRoleId = QueryParser.escape(assignedRoleId.toLowerCase(Locale.CHINESE));
         BoolQueryBuilder totalFilter = QueryBuilders.boolQuery()
                 .filter(termQuery("type", type))        // 必须匹配类型
-                .filter(rangeQuery("date").from(startDate.getTime()).to(endDate.getTime())) // 必须匹配时间范围
-                .filter(termsQuery("roleId", "admin", "user2"));        // 必须满足roleId in ('admin', 'user2')
-        key = StringUtil.trim(key).toLowerCase();
+//                .filter(termQuery("assignedRoleId", "user2")) // 不支持Admin-1234567 或 user2;user3
+//                .filter(regexpQuery("assignedRoleId", assignedRoleId+"[;]?")) // 不支持Admin-1234567
+                .filter(matchPhraseQuery("assignedRoleId", assignedRoleId)) // 使用短语搜索，不对关键字(例如Admin-1234567)进行分词
+//                    .filter(wildcardQuery("assignedRoleId", "*" + QueryParser.escape(assignedRoleId.toLowerCase()) + "*")) // 不支持Admin-1234567
+//                .filter(regexpQuery("roleId", "user2[;]?")) // 不支持Admin-1234567
+                .filter(rangeQuery("date").from(startDate.getTime()).to(endDate.getTime())); // 必须匹配时间范围
+                //.filter(termsQuery("roleId", "admin", "user2"));        // 必须满足roleId in ('admin', 'user2')
+                //.filter(termsQuery("assignedRoleId", "admin", "user2;"));
+        key = QueryParser.escape(StringUtil.trim(key)).toLowerCase(Locale.CHINESE);
         if (!"".equals(key)) {
 
             /**
@@ -83,9 +98,13 @@ public class TestDocServiceImpl extends AbstractEsService<TestDoc> implements Te
              * 先通配查询，然后模糊查询，最后多字段分词检索
              */
             totalFilter.must(boolQuery()//.minimumShouldMatch(1)
+                    .should(boolQuery()     // 使用短语搜索，不对关键字(例如Admin-1234567)进行分词
+                            .should(matchPhraseQuery("name", key))
+                            .should(matchPhraseQuery("content", key))
+                    )
                     .should(boolQuery()                                             // 通配查询
                             .should(wildcardQuery("name", "*" + key + "*"))
-                            .should(wildcardQuery("content", "" + key + "*"))
+                            .should(wildcardQuery("content", "*" + key + "*"))
                     )
                     .should(boolQuery()                                             // 模糊查询
                             .should(fuzzyQuery("name", key).fuzziness(Fuzziness.AUTO))
