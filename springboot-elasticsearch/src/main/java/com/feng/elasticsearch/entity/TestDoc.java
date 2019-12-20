@@ -29,9 +29,9 @@ public class TestDoc implements Serializable {
     @Field(type = FieldType.Keyword)
     private String roleId;
 
-    // 指派ID
+    // 指派ID(使用scriptQuery时需要设置fielddata)
     // FieldType.Text
-    @Field(type = FieldType.Text, store = true)
+    @Field(type = FieldType.Text, store = true, fielddata = true)
     private String assignedRoleId;
 
     /**

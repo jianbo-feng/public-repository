@@ -14,6 +14,8 @@ import org.elasticsearch.common.unit.Fuzziness;
 import org.elasticsearch.index.query.BoolQueryBuilder;
 import org.elasticsearch.index.query.QueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
+import org.elasticsearch.index.query.ScriptQueryBuilder;
+import org.elasticsearch.script.Script;
 import org.elasticsearch.search.SearchHit;
 import org.elasticsearch.search.aggregations.AggregationBuilders;
 import org.elasticsearch.search.aggregations.bucket.terms.TermsAggregationBuilder;
@@ -78,14 +80,27 @@ public class TestDocServiceImpl extends AbstractEsService<TestDoc> implements Te
 //        assignedRoleId = "user2;";
 //        assignedRoleId = "user4;";
         assignedRoleId = QueryParser.escape(assignedRoleId.toLowerCase(Locale.CHINESE));
+
+        // 获取assignedRoleId为null(或"")
+        Script script = new Script("doc['assignedRoleId'].length == 0");
+        ScriptQueryBuilder scriptQueryBuilder = QueryBuilders.scriptQuery(script);
+
+        // 获取assignedRoleId为null(或"")，或者assignedRoleId中包含"user3"的指派角色id信息
+        ScriptQueryBuilder scriptQueryBuilder2 = QueryBuilders.scriptQuery(new Script(
+                "doc['assignedRoleId'].length == 0 || doc['assignedRoleId'].indexOf('user3') >= 0"));
         BoolQueryBuilder totalFilter = QueryBuilders.boolQuery()
                 .filter(termQuery("type", type))        // 必须匹配类型
                 // 满足一个指派角色
 //                .filter(matchPhraseQuery("assignedRoleId", assignedRoleId))
-                .filter(boolQuery() // 任意满足其中一个指派角色即可
-                    .should(matchPhraseQuery("assignedRoleId", QueryParser.escape("Admin_1234567".toLowerCase(Locale.CHINESE))))
-                        .should(matchPhraseQuery("assignedRoleId", QueryParser.escape("user3".toLowerCase(Locale.CHINESE))))
-                )
+//                .filter(boolQuery() // 任意满足其中一个指派角色即可
+//                    .should(matchPhraseQuery("assignedRoleId", QueryParser.escape("Admin_1234567".toLowerCase(Locale.CHINESE))))
+//                        .should(matchPhraseQuery("assignedRoleId", QueryParser.escape("user3".toLowerCase(Locale.CHINESE))))
+//                )
+
+                // 测试assignedRoleId==''或为null的情况
+//                .filter(scriptQueryBuilder)
+                // 测试使用scriptQuery：获取assignedRoleId为null(或"")，或者assignedRoleId中包含"user3"的指派角色id信息
+                .filter(scriptQueryBuilder2)
 
 //                .filter(termQuery("assignedRoleId", "user2")) // 不支持Admin-1234567 或 user2;user3
 //                .filter(regexpQuery("assignedRoleId", assignedRoleId+"[;]?")) // 不支持Admin-1234567
