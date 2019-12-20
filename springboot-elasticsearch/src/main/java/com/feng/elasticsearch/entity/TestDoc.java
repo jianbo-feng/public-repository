@@ -25,10 +25,12 @@ public class TestDoc implements Serializable {
     @Field(type = FieldType.Keyword)
     private String type;
 
+    // FieldType.Keyword 不能进行分词、模糊匹配、短语检索(短语检索除非整个匹配，不做包含匹配)等
     @Field(type = FieldType.Keyword)
     private String roleId;
 
     // 指派ID
+    // FieldType.Text
     @Field(type = FieldType.Text, store = true)
     private String assignedRoleId;
 

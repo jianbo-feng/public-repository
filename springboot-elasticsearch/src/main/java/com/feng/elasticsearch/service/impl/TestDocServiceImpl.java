@@ -72,17 +72,24 @@ public class TestDocServiceImpl extends AbstractEsService<TestDoc> implements Te
         startDate = DateUtil.str2Date("2019-10-02 12:46:45", FORMAT_DATE_TIME);
         Date endDate = new Date();
         String assignedRoleId = "FENGJIANBO547";
-//        assignedRoleId = "Admin_1234567";
-        assignedRoleId = "Admin-1234567";
+        assignedRoleId = "Admin_1234567";
+//        assignedRoleId = "Admin-1234567";
 //        assignedRoleId = "user3;";
 //        assignedRoleId = "user2;";
 //        assignedRoleId = "user4;";
         assignedRoleId = QueryParser.escape(assignedRoleId.toLowerCase(Locale.CHINESE));
         BoolQueryBuilder totalFilter = QueryBuilders.boolQuery()
                 .filter(termQuery("type", type))        // 必须匹配类型
+                // 满足一个指派角色
+//                .filter(matchPhraseQuery("assignedRoleId", assignedRoleId))
+                .filter(boolQuery() // 任意满足其中一个指派角色即可
+                    .should(matchPhraseQuery("assignedRoleId", QueryParser.escape("Admin_1234567".toLowerCase(Locale.CHINESE))))
+                        .should(matchPhraseQuery("assignedRoleId", QueryParser.escape("user3".toLowerCase(Locale.CHINESE))))
+                )
+
 //                .filter(termQuery("assignedRoleId", "user2")) // 不支持Admin-1234567 或 user2;user3
 //                .filter(regexpQuery("assignedRoleId", assignedRoleId+"[;]?")) // 不支持Admin-1234567
-                .filter(matchPhraseQuery("assignedRoleId", assignedRoleId)) // 使用短语搜索，不对关键字(例如Admin-1234567)进行分词
+//                .filter(matchPhraseQuery("assignedRoleId", assignedRoleId)) // 使用短语搜索，不对关键字(例如Admin-1234567)进行分词
 //                    .filter(wildcardQuery("assignedRoleId", "*" + QueryParser.escape(assignedRoleId.toLowerCase()) + "*")) // 不支持Admin-1234567
 //                .filter(regexpQuery("roleId", "user2[;]?")) // 不支持Admin-1234567
                 .filter(rangeQuery("date").from(startDate.getTime()).to(endDate.getTime())); // 必须匹配时间范围
