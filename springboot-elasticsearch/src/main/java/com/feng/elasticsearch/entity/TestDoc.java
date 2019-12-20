@@ -29,7 +29,7 @@ public class TestDoc implements Serializable {
     @Field(type = FieldType.Keyword)
     private String roleId;
 
-    // 指派ID(使用scriptQuery时需要设置fielddata)
+    // 指派ID(使用scriptQuery时需要设置fielddata，因为需要把该字段取出来在内存中做比较；正因为需要取出来在内存中比较，所以效率会降低)
     // FieldType.Text
     @Field(type = FieldType.Text, store = true, fielddata = true)
     private String assignedRoleId;
