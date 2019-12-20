@@ -40,6 +40,7 @@ public class SessionRedisApplication {
 //        cookieSerializer.setDomainNamePattern("");
 //        cookieSerializer.setUseBase64Encoding(false); //  设置cookie是否Base64加密
         cookieSerializer.setUseHttpOnlyCookie(false);   // 需要设置，否则跨域或子域会有问题
+        cookieSerializer.setCookieMaxAge(14400);    // 设置过期时间：14400秒（4个小时）
 
         // 取消仅限同一站点设置
         cookieSerializer.setSameSite(null);

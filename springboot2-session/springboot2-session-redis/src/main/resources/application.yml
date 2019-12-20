@@ -19,6 +19,7 @@ spring:
         enabled: true
   session:
     store-type: redis
+    timeout: 14400 # 单位秒，设置4个小时
 server:
   port: 9990
 
