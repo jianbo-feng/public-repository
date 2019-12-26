@@ -19,8 +19,13 @@ spring:
         enabled: true
   session:
     store-type: redis
+    timeout: 14400
 server:
   port: 9991
-
+  servlet:
+    session:
+      timeout: 240m
+      cookie:
+        max-age: 14400
 project:
   domain:

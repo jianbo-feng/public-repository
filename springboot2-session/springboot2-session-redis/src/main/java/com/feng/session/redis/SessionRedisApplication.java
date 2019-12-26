@@ -13,7 +13,7 @@ import org.springframework.session.web.http.HeaderHttpSessionIdResolver;
 
 @EnableRedisRepositories(basePackages = "com.feng.session.redis.repository")
 @EnableCaching
-@EnableRedisHttpSession
+@EnableRedisHttpSession(maxInactiveIntervalInSeconds = 14400)
 @SpringBootApplication
 public class SessionRedisApplication {
 

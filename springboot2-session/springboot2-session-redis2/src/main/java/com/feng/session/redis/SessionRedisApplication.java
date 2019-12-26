@@ -12,7 +12,7 @@ import org.springframework.session.web.http.DefaultCookieSerializer;
 
 @EnableRedisRepositories(basePackages = "com.feng.session.redis.repository")
 @EnableCaching
-@EnableRedisHttpSession
+@EnableRedisHttpSession(maxInactiveIntervalInSeconds = 14400)
 @SpringBootApplication
 public class SessionRedisApplication {
 
