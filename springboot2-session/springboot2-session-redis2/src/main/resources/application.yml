@@ -27,5 +27,6 @@ server:
       timeout: 240m
       cookie:
         max-age: 14400
+      tracking-modes: cookie
 project:
   domain:
