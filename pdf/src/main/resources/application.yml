@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: pdf
+  resources:
+    static-locations: file:/Users/baby/work/test/,classpath:/static/
+server:
+  port: 8083

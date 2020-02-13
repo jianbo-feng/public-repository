@@ -2,17 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9c440a28-11c7-4ba5-b497-c2345938473d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../vertx/src/main/java/com/feng/vertx/demo/Demo1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../vertx/src/main/java/com/feng/vertx/demo/Demo5.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../vertx/src/main/java/com/feng/vertx/demo/GetPostAction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../vertx/src/main/java/com/feng/vertx/demo/Pi.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../vertx/src/main/java/com/feng/vertx/demo/WebDemo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../vertx/src/main/java/com/feng/vertx/demo/WebRouterDemo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../vertx/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springboot-elasticsearch/src/main/java/com/feng/elasticsearch/service/impl/TestDocServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../springboot-elasticsearch/src/main/java/com/feng/elasticsearch/service/impl/TestDocServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vertx-sample2/.gradle/5.4.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/vertx-sample2/.gradle/5.4.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vertx-sample2/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/vertx-sample2/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vertx-sample3/.gradle/5.4.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/vertx-sample3/.gradle/5.4.1/fileHashes/fileHashes.lock" afterDir="false" />
@@ -112,7 +101,7 @@
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="375">
-              <caret line="25" column="8" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="8" />
+              <caret line="25" selection-start-line="25" selection-end-line="25" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -223,12 +212,12 @@
       <workItem from="1576043190069" duration="123000" />
       <workItem from="1576046583041" duration="86000" />
       <workItem from="1576046752871" duration="173000" />
-      <workItem from="1576567860620" duration="24000" />
+      <workItem from="1576567860620" duration="780000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1226000" />
+    <option name="totallyTimeSpent" value="1982000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="716" extended-state="0" />
@@ -323,7 +312,7 @@
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
-          <caret line="25" column="8" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="8" />
+          <caret line="25" selection-start-line="25" selection-end-line="25" selection-end-column="9" />
         </state>
       </provider>
     </entry>

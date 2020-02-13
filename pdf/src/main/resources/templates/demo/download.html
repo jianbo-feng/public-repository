@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>下载测试</title>
+    <script type="text/javascript">
+        function downPDF() {
+            /*
+            var pdf = $("#downPDF").val();
+            if (pdf.indexOf("车辆") != -1) {
+                document.getElementById('links').href = "http://localhost:8083/test-01.pdf";
+            } else if (pdf.indexOf("工务") != -1) {
+                document.getElementById('links').href = "http://localhost:8083/test-01.pdf";
+            }
+             */
+            document.getElementById('links').href = "http://localhost:8083/test-01.pdf";
+        }
+    </script>
+</head>
+<body>
+<a>下载测试</a>
+<a href="http://localhost:8083/test-01.pdf" class="sel_btn" download>点击下载</a>
+
+<!-- 2、通过点击按钮，直接将PDF文件政教到本地，然后可打开进行阅读 -->
+<input type="hidden" id="downPDF"><!-- 隐藏域：存放处室名字，供下载PDF作判断 -->
+<a href="#" class="sel_btn" id="links" download onClick="downPDF();">点击下载2</a>
+</body>
+</html>
