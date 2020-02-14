@@ -58,7 +58,7 @@ public class StringUtil {
      * @param data 数据
      * @return {Map&lt;String,Object&gt;}
      */
-    public static Map<String,Object> getResultVo(int code, String msg, Object data) {
+    public static Map<String, Object> getResultVo(int code, String msg, Object data) {
         Map<String,Object> vo = new HashMap<>();
         vo.put(Constants.KEY_CODE,code);
         vo.put(Constants.KEY_MSG,msg);
@@ -75,7 +75,7 @@ public class StringUtil {
      * @return
      */
     public static Map<String, Object> getLoginResultVo(int code, String msg, String sessionId , Object data) {
-        Map<String,Object> vo = new HashMap<>();
+        Map<String, Object> vo = new HashMap<>();
         vo.put(Constants.KEY_CODE, code);
         vo.put(Constants.KEY_MSG, msg);
         vo.put(Constants.KEY_DATA, data);
@@ -89,7 +89,7 @@ public class StringUtil {
      * @param key 若为null或""，null
      * @return
      */
-    public static Object getValByStrKey(Map<String,Object> data,String key) {
+    public static Object getValByStrKey(Map<String, Object> data, String key) {
         return getValueByStrKey(data,key,null);
     }
 
@@ -100,7 +100,7 @@ public class StringUtil {
      * @param def 若无法获取值，则返回默认值
      * @return
      */
-    public static Object getValueByStrKey(Map<String,Object> data,String key,Object def) {
+    public static Object getValueByStrKey(Map<String, Object> data, String key, Object def) {
         key = trim(key);
         return getValByKey(data,key,def);
     }
@@ -112,7 +112,7 @@ public class StringUtil {
      * @param def 若无法获取值，则返回默认值
      * @return
      */
-    public static Object getValByKey(Map<String,Object> data,Object key,Object def) {
+    public static Object getValByKey(Map<String, Object> data, Object key, Object def) {
         if(data == null || key == null) {
             return def;
         }
@@ -350,7 +350,7 @@ public class StringUtil {
      * @param defult 默认值
      * @return 若字符串转换Byte型数字异常，则返回defult
      */
-    public static Byte strToByte(String src,Byte defult) {
+    public static Byte strToByte(String src, Byte defult) {
         if (!("".equals(src) || src == null)) {
             try {
                 defult = Byte.valueOf(src.trim());
@@ -369,7 +369,7 @@ public class StringUtil {
      * @param length 表示生成字符串的长度(<b>length必须大于0,否则默认为1</b>)
      * @return
      */
-    public static String randomString(String baseString,int length) {
+    public static String randomString(String baseString, int length) {
         length = length <= 0 ? 1 : length;
         baseString = trim(baseString);
         int len = length;
@@ -417,7 +417,7 @@ public class StringUtil {
      * @param splitLen 截取长度
      * @return
      */
-    public static String subString(String src,int splitLen) {
+    public static String subString(String src, int splitLen) {
         String dest = null;
         if(src != null && splitLen > 0) {
             int len = src.length();
@@ -588,7 +588,7 @@ public class StringUtil {
      * @param format 编码格式，如UTF-8、GBK; 默认为"UTF-8"
      * @return int
      */
-    public static int getLength(String value,String format) {
+    public static int getLength(String value, String format) {
         int valueLength = 0;
 		value = trim(value);
         if(!"".equals(value)) {
