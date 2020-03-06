@@ -11,6 +11,13 @@ import javax.jms.MessageListener;
 import javax.jms.Session;
 import org.apache.activemq.ActiveMQConnectionFactory;
 
+/**
+ * 消息发布者发送
+ * 消费者只能接收到注册之后，发送端发送的消息; 也就是注册之前的消息是接收不到的
+ * 发送端发送的消息会分发给所有注册的消费者
+ * 注册发送端的关键在于session.createTopic("Topic名称")中的Topic名称
+ * @see <a href="https://www.jianshu.com/p/79607774c3cc">参考</a>
+ */
 public class PubReceive {
     public static void main(String[] args) throws JMSException {
         //创建链接工厂
