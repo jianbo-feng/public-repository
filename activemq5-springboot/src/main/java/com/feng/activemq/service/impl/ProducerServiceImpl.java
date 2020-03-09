@@ -7,7 +7,11 @@ import org.springframework.stereotype.Service;
 
 import javax.jms.Destination;
 
-
+/**
+ * （消息）生产者服务实现
+ * @author
+ * @date 2020/03/09
+ */
 @Service
 public class ProducerServiceImpl implements ProducerService {
 

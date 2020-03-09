@@ -8,6 +8,8 @@ import org.springframework.jms.annotation.EnableJms;
 
 /**
  * 消息监听配置
+ * @author 消息监听器集
+ * @date 2020/03/09
  */
 @Configuration
 @EnableJms

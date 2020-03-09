@@ -4,7 +4,9 @@ import org.springframework.jms.annotation.JmsListener;
 import org.springframework.stereotype.Component;
 
 /**
- * 消息主题模式
+ * 消费者消息主题(模式)
+ * @author
+ * @date 2020/03/09
  */
 @Component
 public class ConsumerTopic {

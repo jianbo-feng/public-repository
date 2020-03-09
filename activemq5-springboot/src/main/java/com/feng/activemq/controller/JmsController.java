@@ -15,6 +15,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
+/**
+ * Java消息服务测试
+ * @author
+ * @date 2020/03/09
+ */
 @RestController
 @RequestMapping("/jms")
 public class JmsController {
@@ -30,7 +35,7 @@ public class JmsController {
 
     /**
      * 队列（模式）发送消息
-     * @param msg
+     * @param msg 消息
      */
     @GetMapping("/activemq/queue")
     public void sendQueue(String msg) {
@@ -40,7 +45,7 @@ public class JmsController {
 
     /**
      * 主题（模式）发送消息
-     * @param msg
+     * @param msg 消息
      */
     @GetMapping("/activemq/topic")
     public void sendTopic(String msg) {

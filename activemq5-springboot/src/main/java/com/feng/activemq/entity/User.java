@@ -1,5 +1,10 @@
 package com.feng.activemq.entity;
 
+/**
+ * 用户信息
+ * @author
+ * @date 2020/03/09
+ */
 public class User {
 
     private String userId;
