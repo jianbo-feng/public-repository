@@ -1,5 +1,11 @@
 # SpringBoot + RabbitMQ
 
+
+## <a href="https://www.cnblogs.com/shenyixin/p/9084249.html">Exchange模式简介参考</a>
+``
+https://www.cnblogs.com/shenyixin/p/9084249.html 
+``
+
 ## 简介
 ```
 Exchange 类型
@@ -26,7 +32,7 @@ Exchange分发消息时根据类型的不同分发策略有区别，目前共四
 ## 组件版本说明
 ```
 1、SpringBoot 2.0.4 以及 2.1.6 都能正常运行
-2、spring-boot-starter-amqp 跟随SpringBoot版本
+2、Spring-boot-starter-amqp 跟随SpringBoot版本
 ```
 
 ## 项目运行说明
